@@ -59,7 +59,8 @@ public:
 
 	CBlockMember *Duplicate( void );
 
-	template <class T> WriteData(T &data)
+	template <class T>
+	void WriteData(T &data)
 	{
 		if ( m_data )
 			free( m_data );
@@ -69,7 +70,8 @@ public:
 		m_size = sizeof(T);
 	}
 
-	template <class T> WriteDataPointer(const T *data, int num)
+	template <class T>
+	void WriteDataPointer(const T *data, int num)
 	{
 		if ( m_data )
 			free( m_data );

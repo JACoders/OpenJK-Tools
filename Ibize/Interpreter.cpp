@@ -5,6 +5,8 @@
 #ifdef _WIN32
 #include <direct.h>	//For getcwd()
 #include <conio.h>	//For getch()
+#else
+#include <unistd.h>
 #endif
 #include <stdio.h>
 
