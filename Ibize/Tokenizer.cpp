@@ -283,7 +283,7 @@ bool CParseStream::NextChar(byte& theByte)
 	return false;
 }
 
-long CParseStream::GetRemainingSize()
+uint32_t CParseStream::GetRemainingSize()
 {
 	return 0;
 }
@@ -370,7 +370,7 @@ void CParsePutBack::Init(byte theByte, int curLine, LPCTSTR filename)
 	}
 }
 
-long CParsePutBack::GetRemainingSize()
+uint32_t CParsePutBack::GetRemainingSize()
 {
 	if (m_consumed)
 	{
@@ -544,7 +544,7 @@ bool CParseFile::Init(LPCTSTR filename, CTokenizer* tokenizer)
 	return true;
 }
 
-long CParseFile::GetRemainingSize()
+uint32_t CParseFile::GetRemainingSize()
 {
 	return m_filesize - m_curByte;
 }
@@ -598,7 +598,7 @@ CParseMemory::~CParseMemory()
 {
 }
 
-CParseMemory* CParseMemory::Create(byte* data, long datasize)
+CParseMemory* CParseMemory::Create(byte* data, uint32_t datasize)
 {
 	CParseMemory* curParse = new CParseMemory();
 	curParse->Init(data, datasize);
@@ -632,7 +632,7 @@ bool CParseMemory::NextChar(byte& theByte)
 	}
 }
 
-void CParseMemory::Init(byte* data, long datasize)
+void CParseMemory::Init(byte* data, uint32_t datasize)
 {
 	m_data = data;
 	m_curLine = 1;
@@ -641,7 +641,7 @@ void CParseMemory::Init(byte* data, long datasize)
 	m_datasize = datasize;
 }
 
-long CParseMemory::GetRemainingSize()
+uint32_t CParseMemory::GetRemainingSize()
 {
 	return m_datasize - m_offset;
 }
@@ -668,7 +668,7 @@ CParseBlock::~CParseBlock()
 {
 }
 
-CParseBlock* CParseBlock::Create(byte* data, long datasize)
+CParseBlock* CParseBlock::Create(byte* data, uint32_t datasize)
 {
 	CParseBlock* curParse = new CParseBlock();
 	curParse->Init(data, datasize);
@@ -685,7 +685,7 @@ void CParseBlock::Delete()
 	delete this;
 }
 
-void CParseBlock::Init(byte* data, long datasize)
+void CParseBlock::Init(byte* data, uint32_t datasize)
 {
 	m_data = (byte*)malloc(datasize);
 	memcpy(m_data, data, datasize);
@@ -765,7 +765,7 @@ void CParseToken::Init(CToken* token)
 	token->Delete();
 }
 
-long CParseToken::GetRemainingSize()
+uint32_t CParseToken::GetRemainingSize()
 {
 	return m_datasize - m_offset;
 }
@@ -1010,7 +1010,7 @@ CIntToken::~CIntToken()
 {
 }
 
-CIntToken* CIntToken::Create(long value)
+CIntToken* CIntToken::Create(uint32_t value)
 {
 	CIntToken* theToken = new CIntToken();
 	theToken->Init(value);
@@ -1022,7 +1022,7 @@ void CIntToken::Delete()
 	CToken::Delete();
 }
 
-void CIntToken::Init(long value)
+void CIntToken::Init(uint32_t value)
 {
 	CToken::Init();
 	m_value = value;
@@ -1501,16 +1501,16 @@ bool CTokenizer::AddParseFile(LPCTSTR filename)
 	return false;
 }
 
-void CTokenizer::AddParseStream(byte* data, long datasize)
+void CTokenizer::AddParseStream(byte* data, uint32_t datasize)
 {
 	CParseStream* newStream = CParseMemory::Create(data, datasize);
 	newStream->SetNext(m_curParseStream);
 	m_curParseStream = newStream;
 }
 
-long CTokenizer::GetRemainingSize()
+uint32_t CTokenizer::GetRemainingSize()
 {
-	long retval = 0;
+	uint32_t retval = 0;
 	CParseStream* curStream = m_curParseStream;
 	while (curStream != NULL)
 	{
@@ -2235,7 +2235,7 @@ CToken* CTokenizer::HandleNumeric(byte theByte)
 	{
 		return HandleOctal(thesign);
 	}
-	long value = 0;
+	uint32_t value = 0;
 	bool digithit = false;
 	while((theByte >= '0') && (theByte <= '9'))
 	{
@@ -2400,7 +2400,7 @@ CToken* CTokenizer::HandleDecimal(bool thesign)
 	return HandleSymbol(theByte);
 }
 
-CToken* CTokenizer::HandleFloat(bool thesign, long value)
+CToken* CTokenizer::HandleFloat(bool thesign, uint32_t value)
 {
 	float lower = 1.0;
 	float newValue = (float)value;

@@ -92,13 +92,13 @@ ReadMember
 -------------------------
 */
 
-int CBlockMember::ReadMember( char **stream, long *streamPos )
+int CBlockMember::ReadMember( char **stream, uint32_t *streamPos )
 {
 	m_id = *(int *) (*stream + *streamPos);
 	*streamPos += sizeof( int );
 
-	m_size = *(long *) (*stream + *streamPos);
-	*streamPos += sizeof( long );
+	m_size = *(uint32_t *) (*stream + *streamPos);
+	*streamPos += sizeof( uint32_t );
 
 	m_data = malloc( m_size );
 	memset( m_data, 0, m_size );
@@ -437,11 +437,11 @@ GetLong
 -------------------------
 */
 
-long CBlockStream::GetLong( void )
+uint32_t CBlockStream::GetLong( void )
 {
-	long data;
+	uint32_t data;
 
-	data = *(long *) (m_stream + m_streamPos);
+	data = *(uint32_t *) (m_stream + m_streamPos);
 	m_streamPos += sizeof( data );
 
 	return data;
@@ -639,7 +639,7 @@ Open
 -------------------------
 */
 
-int CBlockStream::Open( char *buffer, long size )
+int CBlockStream::Open( char *buffer, uint32_t size )
 {
 	char	id_header[sizeof(IBI_HEADER_ID)];
 	float	version;

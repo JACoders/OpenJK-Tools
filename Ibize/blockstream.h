@@ -41,7 +41,7 @@ public:
 	void Free( void );
 
 	int WriteMember ( FILE * );				//Writes the member's data, in block format, to FILE *
-	int	ReadMember( char **, long * );		//Reads the member's data, in block format, from FILE *
+	int	ReadMember( char **, uint32_t * );		//Reads the member's data, in block format, from FILE *
 
 	void SetID( int id )		{	m_id = id;		}	//Set the ID member variable
 	void SetSize( int size )	{	m_size = size;	}	//Set the size member variable
@@ -159,25 +159,25 @@ public:
 	int WriteBlock( CBlock * );	//Write the block out
 	int ReadBlock( CBlock * );	//Read the block in
 	
-	int Open( char *, long );	//Open a stream for reading / writing
+	int Open( char *, uint32_t );	//Open a stream for reading / writing
 
 protected:
 
 	unsigned	GetUnsignedInteger( void );
 	int			GetInteger( void );
 	
-	char	GetChar( void );
-	long	GetLong( void );
-	float	GetFloat( void );
+	char		GetChar( void );
+	uint32_t	GetLong( void );
+	float		GetFloat( void );
 
-	void	StripExtension( const char *, char * );	//Utility function to strip away file extensions
+	void		StripExtension( const char *, char * );	//Utility function to strip away file extensions
 
-	long	m_fileSize;							//Size of the file	
-	FILE	*m_fileHandle;						//Global file handle of current I/O source
-	char	m_fileName[MAX_FILENAME_LENGTH];	//Name of the current file
+	uint32_t	m_fileSize;							//Size of the file	
+	FILE		*m_fileHandle;						//Global file handle of current I/O source
+	char		m_fileName[MAX_FILENAME_LENGTH];	//Name of the current file
 
-	char	*m_stream;							//Stream of data to be parsed
-	long	m_streamPos;
+	char		*m_stream;							//Stream of data to be parsed
+	uint32_t	m_streamPos;
 };
 
 #endif	//__INTERPRETED_BLOCK_STREAM__

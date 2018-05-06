@@ -9,6 +9,8 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <cstdint>
+
 using namespace std;
 
 #include "ibize_platform.h"
@@ -90,7 +92,7 @@ public:
 	virtual bool NextChar(byte& theByte);
 	virtual int GetCurLine();
 	virtual void GetCurFilename(char** theBuff);
-	virtual long GetRemainingSize();
+	virtual uint32_t GetRemainingSize();
 
 	CParseStream* GetNext();
 	void SetNext(CParseStream* next);
@@ -158,7 +160,7 @@ class CIntToken : public CToken
 public:
 	CIntToken();
 	~CIntToken();
-	static CIntToken* Create(long value);
+	static CIntToken* Create(uint32_t value);
 	virtual void Delete();
 
 	virtual int GetType();
@@ -167,9 +169,9 @@ public:
 	virtual LPCTSTR GetStringValue();
 
 protected:
-	virtual void Init(long value);
+	virtual void Init(uint32_t value);
 	
-	long			m_value;
+	uint32_t			m_value;
 };
 
 class CFloatToken : public CToken
@@ -406,10 +408,10 @@ public:
 	void SetSymbols(keywordArray_t* theSymbols);
 	void SetAdditionalErrors(keywordArray_t* theErrors);
 	void SetErrorProc(LPTokenizerErrorProc errorProc);
-	void AddParseStream(byte* data, long datasize);
+	void AddParseStream(byte* data, uint32_t datasize);
 	bool AddParseFile(LPCTSTR filename);
 	COLORREF ParseRGB();
-	long GetRemainingSize();
+	uint32_t GetRemainingSize();
 
 	UINT GetFlags();
 	void SetFlags(UINT flags);
@@ -435,7 +437,7 @@ protected:
 	CToken* HandleQuote();
 	CToken* HandleIdentifier(byte theByte);
 	CToken* HandleNumeric(byte theByte);
-	CToken* HandleFloat(bool thesign = false, long value = 0);
+	CToken* HandleFloat(bool thesign = false, uint32_t value = 0);
 	CToken* HandleDecimal(bool thesign = false);
 	CToken* HandleSymbol(byte theByte);
 	CToken* HandleHex(bool thesize);
@@ -478,7 +480,7 @@ public:
 	virtual bool NextChar(byte& theByte);
 	virtual int GetCurLine();
 	virtual void GetCurFilename(char** theBuff);
-	virtual long GetRemainingSize();
+	virtual uint32_t GetRemainingSize();
 
 protected:
 	virtual void Init(byte theByte, int curLine, LPCTSTR filename);
@@ -494,21 +496,21 @@ class CParseMemory : public CParseStream
 public:
 	CParseMemory();
 	~CParseMemory();
-	static CParseMemory* Create(byte* data, long datasize);
+	static CParseMemory* Create(byte* data, uint32_t datasize);
 	virtual void Delete();
 	virtual bool NextChar(byte& theByte);
 	virtual int GetCurLine();
 	virtual void GetCurFilename(char** theBuff);
-	virtual long GetRemainingSize();
+	virtual uint32_t GetRemainingSize();
 
 protected:
-	virtual void Init(byte* data, long datasize);
+	virtual void Init(byte* data, uint32_t datasize);
 
 	byte*			m_data;
 	int				m_curLine;
-	long			m_curPos;
-	long			m_datasize;
-	long			m_offset;
+	uint32_t		m_curPos;
+	uint32_t		m_datasize;
+	uint32_t		m_offset;
 };
 
 class CParseBlock : public CParseMemory
@@ -516,11 +518,11 @@ class CParseBlock : public CParseMemory
 public:
 	CParseBlock();
 	~CParseBlock();
-	static CParseBlock* Create(byte* data, long datasize);
+	static CParseBlock* Create(byte* data, uint32_t datasize);
 	virtual void Delete();
 
 protected:
-	virtual void Init(byte* data, long datasize);
+	virtual void Init(byte* data, uint32_t datasize);
 };
 
 class CParseToken : public CParseStream
@@ -533,16 +535,16 @@ public:
 	virtual bool NextChar(byte& theByte);
 	virtual int GetCurLine();
 	virtual void GetCurFilename(char** theBuff);
-	virtual long GetRemainingSize();
+	virtual uint32_t GetRemainingSize();
 
 protected:
 	virtual void Init(CToken* token);
 
 	byte*			m_data;
 	int				m_curLine;
-	long			m_curPos;
-	long			m_datasize;
-	long			m_offset;
+	uint32_t		m_curPos;
+	uint32_t		m_datasize;
+	uint32_t		m_offset;
 };
 
 class CParseDefine : public CParseMemory
@@ -571,7 +573,7 @@ public:
 	virtual void Delete();
 	virtual int GetCurLine();
 	virtual void GetCurFilename(char** theBuff);
-	virtual long GetRemainingSize();
+	virtual uint32_t GetRemainingSize();
 
 	virtual bool NextChar(byte& theByte);
 

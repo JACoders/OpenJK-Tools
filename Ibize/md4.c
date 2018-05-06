@@ -1,15 +1,16 @@
 /* GLOBAL.H - RSAREF types and constants */
 
 #include <string.h>
+#include <stdint.h>
 
 /* POINTER defines a generic pointer type */
 typedef unsigned char *POINTER;
 
 /* UINT2 defines a two byte word */
-typedef unsigned short int UINT2;
+typedef uint16_t UINT2;
 
 /* UINT4 defines a four byte word */
-typedef unsigned long int UINT4;
+typedef uint32_t UINT4;
 
   
 /* MD4.H - header file for MD4C.C */
@@ -18,11 +19,23 @@ typedef unsigned long int UINT4;
 
 All rights reserved.
   
-License to copy and use this software is granted provided that it is identified as the “RSA Data Security, Inc. MD4 Message-Digest Algorithm” in all material mentioning or referencing this software or this function.
-License is also granted to make and use derivative works provided that such works are identified as “derived from the RSA Data Security, Inc. MD4 Message-Digest Algorithm” in all material mentioning or referencing the derived work.
-RSA Data Security, Inc. makes no representations concerning either the merchantability of this software or the suitability of this software for any particular purpose. It is provided “as is” without express or implied warranty of any kind.
+License to copy and use this software is granted provided that it is identified
+as the RSA Data Security, Inc. MD4 Message-Digest Algorithm in all material
+mentioning or referencing this software or this function.
+
+License is also granted to make and use derivative works provided that such
+works are identified as derived from the RSA Data Security, Inc. MD4
+Message-Digest Algorithm in all material mentioning or referencing the derived
+work.
+
+RSA Data Security, Inc. makes no representations concerning either the
+merchantability of this software or the suitability of this software for any
+particular purpose. It is provided as is without express or implied warranty of
+any kind.
   
-These notices must be retained in any copies of any part of this documentation and/or software. */
+These notices must be retained in any copies of any part of this documentation
+and/or software.
+*/
 
 /* MD4 context. */
 typedef struct {
@@ -40,16 +53,22 @@ void MD4Final (unsigned char [16], MD4_CTX *);
 /* MD4C.C - RSA Data Security, Inc., MD4 message-digest algorithm */
 /* Copyright (C) 1990-2, RSA Data Security, Inc. All rights reserved.
   
-License to copy and use this software is granted provided that it is identified as the
-RSA Data Security, Inc. MD4 Message-Digest Algorithm
- in all material mentioning or referencing this software or this function.
-License is also granted to make and use derivative works provided that such works are identified as 
-derived from the RSA Data Security, Inc. MD4 Message-Digest Algorithm
-in all material mentioning or referencing the derived work.
-RSA Data Security, Inc. makes no representations concerning either the merchantability of this software or the suitability of this software for any particular purpose. It is provided
-as is without express or implied warranty of any kind.
+License to copy and use this software is granted provided that it is identified
+as the RSA Data Security, Inc. MD4 Message-Digest Algorithm in all material
+mentioning or referencing this software or this function.
+
+License is also granted to make and use derivative works provided that such
+works are identified as derived from the RSA Data Security, Inc. MD4
+Message-Digest Algorithm in all material mentioning or referencing the derived
+work.
+
+RSA Data Security, Inc. makes no representations concerning either the
+merchantability of this software or the suitability of this software for any
+particular purpose. It is provided as is without express or implied warranty of
+any kind.
   
-These notices must be retained in any copies of any part of this documentation and/or software. */
+These notices must be retained in any copies of any part of this documentation
+and/or software. */
 
 /* Constants for MD4Transform routine.  */
 #define S11 3
