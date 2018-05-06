@@ -195,7 +195,7 @@ protected:
 	variable_t *FindVar( const char *name );
 
 	const char *GetTokenName( int );	//Returns the name of a token
-	int Error( char *, ... );			//Prints an error message
+	int Error( const char *, ... );		//Prints an error message
 	
 	int MatchTag( void );				//Attempts to match to a tag identifier
 	int MatchGet( void );				//Attempts to match to a get identifier

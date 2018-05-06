@@ -151,7 +151,7 @@ CInterpreter::~CInterpreter()
 ===================================================================================================
 */
 
-int CInterpreter::Error( char *format, ... )
+int CInterpreter::Error( const char *format, ... )
 {
 	va_list		argptr;
 	char		*error_file, error_msg[1024]="", work_dir[1024]="", out_msg[1024]="";
@@ -193,7 +193,7 @@ int CInterpreter::Error( char *format, ... )
 
 #else
 
-	printf(out_msg);
+	printf("%s", out_msg);
 
 #endif
 

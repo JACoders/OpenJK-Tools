@@ -15,8 +15,8 @@ using namespace std;
 
 #include "ibize_platform.h"
 
-typedef unsigned char byte;
-typedef unsigned short word;
+typedef uint8_t byte;
+typedef uint16_t word;
 
 #define MAX_STRING_LENGTH		256
 #define MAX_IDENTIFIER_LENGTH	128
@@ -72,14 +72,14 @@ enum
 
 typedef struct
 {
-	char*		m_keyword;
+	const char*	m_keyword;
 	int			m_tokenvalue;
 } keywordArray_t;
 
 class lessstr
 {
 public:
-	bool operator()(LPCTSTR str1, LPCTSTR str2) const {return (strcmp(str1, str2) < 0);};
+	bool operator()(const char *str1, const char *str2) const {return (strcmp(str1, str2) < 0);};
 };
 
 class CParseStream
@@ -117,7 +117,7 @@ public:
 	CToken* GetNext();
 	void SetNext(CToken* theToken);
 	virtual int GetIntValue();
-	virtual LPCTSTR GetStringValue();
+	virtual const char *GetStringValue();
 	virtual float GetFloatValue();
 
 protected:
@@ -146,13 +146,13 @@ class CStringToken : public CToken
 public:
 	CStringToken();
 	~CStringToken();
-	static CStringToken* Create(LPCTSTR theString);
+	static CStringToken* Create(const char *theString);
 	virtual void Delete();
 
 	virtual int GetType();
 
 protected:
-	virtual void Init(LPCTSTR theString);
+	virtual void Init(const char *theString);
 };
 
 class CIntToken : public CToken
@@ -166,7 +166,7 @@ public:
 	virtual int GetType();
 	virtual float GetFloatValue();
 	virtual int GetIntValue();
-	virtual LPCTSTR GetStringValue();
+	virtual const char *GetStringValue();
 
 protected:
 	virtual void Init(uint32_t value);
@@ -184,7 +184,7 @@ public:
 
 	virtual int GetType();
 	virtual float GetFloatValue();
-	virtual LPCTSTR GetStringValue();
+	virtual const char *GetStringValue();
 
 protected:
 	virtual void Init(float value);
@@ -197,13 +197,13 @@ class CIdentifierToken : public CToken
 public:
 	CIdentifierToken();
 	~CIdentifierToken();
-	static CIdentifierToken* Create(LPCTSTR name);
+	static CIdentifierToken* Create(const char *name);
 	virtual void Delete();
 
 	virtual int GetType();
 
 protected:
-	virtual void Init(LPCTSTR name);
+	virtual void Init(const char *name);
 };
 
 class CCommentToken : public CToken
@@ -211,13 +211,13 @@ class CCommentToken : public CToken
 public:
 	CCommentToken();
 	~CCommentToken();
-	static CCommentToken* Create(LPCTSTR name);
+	static CCommentToken* Create(const char *name);
 	virtual void Delete();
 
 	virtual int GetType();
 
 protected:
-	virtual void Init(LPCTSTR name);
+	virtual void Init(const char *name);
 };
 
 class CUserToken : public CToken
@@ -225,13 +225,13 @@ class CUserToken : public CToken
 public:
 	CUserToken();
 	~CUserToken();
-	static CUserToken* Create(int value, LPCTSTR string);
+	static CUserToken* Create(int value, const char *string);
 	virtual void Delete();
 
 	virtual int GetType();
 
 protected:
-	virtual void Init(int value, LPCTSTR string);
+	virtual void Init(int value, const char *string);
 
 	int				m_value;
 };
@@ -241,13 +241,13 @@ class CUndefinedToken : public CToken
 public:
 	CUndefinedToken();
 	~CUndefinedToken();
-	static CUndefinedToken* Create(LPCTSTR string);
+	static CUndefinedToken* Create(const char *string);
 	virtual void Delete();
 
 	virtual int GetType();
 
 protected:
-	virtual void Init(LPCTSTR string);
+	virtual void Init(const char *string);
 };
 
 class CSymbol
@@ -255,32 +255,32 @@ class CSymbol
 public:
 	CSymbol();
 	virtual ~CSymbol();
-	static CSymbol* Create(LPCTSTR symbolName);
+	static CSymbol* Create(const char *symbolName);
 	virtual void Delete();
 
-	LPCTSTR GetName();
+	const char *GetName();
 
 protected:
-	virtual void Init(LPCTSTR symbolName);
+	virtual void Init(const char *symbolName);
 
 	char*			m_symbolName;
 };
 
-typedef map<LPCTSTR, CSymbol*, lessstr> symbolmap_t;
+typedef map<const char *, CSymbol*, lessstr> symbolmap_t;
 
 class CDirectiveSymbol : public CSymbol
 {
 public:
 	CDirectiveSymbol();
 	~CDirectiveSymbol();
-	static CDirectiveSymbol* Create(LPCTSTR symbolName);
+	static CDirectiveSymbol* Create(const char *symbolName);
 	virtual void Delete();
 
-	void SetValue(LPCTSTR value);
-	LPCTSTR GetValue();
+	void SetValue(const char *value);
+	const char *GetValue();
 
 protected:
-	virtual void Init(LPCTSTR symbolName);
+	virtual void Init(const char *symbolName);
 
 	char*			m_value;
 };
@@ -289,13 +289,13 @@ class CIntSymbol : public CSymbol
 {
 public:
 	CIntSymbol();
-	static CIntSymbol* Create(LPCTSTR symbolName, int value);
+	static CIntSymbol* Create(const char *symbolName, int value);
 	virtual void Delete();
 
 	int GetValue();
 
 protected:
-	virtual void Init(LPCTSTR symbolName, int value);
+	virtual void Init(const char *symbolName, int value);
 
 	int				m_value;
 };
@@ -309,9 +309,9 @@ public:
 	void Delete();
 
 	bool AddSymbol(CSymbol* theSymbol);
-	CSymbol* FindSymbol(LPCTSTR symbolName);
-	CSymbol* ExtractSymbol(LPCTSTR symbolName);
-	void RemoveSymbol(LPCTSTR symbolName);
+	CSymbol* FindSymbol(const char *symbolName);
+	CSymbol* ExtractSymbol(const char *symbolName);
+	void RemoveSymbol(const char *symbolName);
 	void DiscardSymbols();
 
 protected:
@@ -379,7 +379,7 @@ protected:
 	void Init();
 };
 
-typedef void (*LPTokenizerErrorProc)(LPCTSTR errString);
+typedef void (*LPTokenizerErrorProc)(const char *errString);
 
 #ifdef USES_MODULES
 class CTokenizer : public CModule
@@ -390,15 +390,15 @@ class CTokenizer
 public:
 	CTokenizer();
 	~CTokenizer();
-	static CTokenizer* Create(UINT dwFlags = 0);
+	static CTokenizer* Create(uint32_t dwFlags = 0);
 	virtual void Delete();
 	virtual void Error(int theError);
-	virtual void Error(int theError, LPCTSTR errString);
-	virtual void Error(LPCTSTR errString, int theError = TKERR_UNKNOWN);
+	virtual void Error(int theError, const char *errString);
+	virtual void Error(const char *errString, int theError = TKERR_UNKNOWN);
 
-	CToken* GetToken(UINT onFlags = 0, UINT offFlags = 0);
-	CToken* GetToken(keywordArray_t* keywords, UINT onFlags, UINT offFlags);
-	void PutBackToken(CToken* theToken, bool commented = false, LPCTSTR addedChars = NULL, bool bIgnoreThisTokenType = false);
+	CToken* GetToken(uint32_t onFlags = 0, uint32_t offFlags = 0);
+	CToken* GetToken(keywordArray_t* keywords, uint32_t onFlags, uint32_t offFlags);
+	void PutBackToken(CToken* theToken, bool commented = false, const char *addedChars = NULL, bool bIgnoreThisTokenType = false);
 	bool RequireToken(int tokenType);
 	void ScanUntilToken(int tokenType);
 	void SkipToLineEnd();
@@ -409,28 +409,28 @@ public:
 	void SetAdditionalErrors(keywordArray_t* theErrors);
 	void SetErrorProc(LPTokenizerErrorProc errorProc);
 	void AddParseStream(byte* data, uint32_t datasize);
-	bool AddParseFile(LPCTSTR filename);
+	bool AddParseFile(const char *filename);
 	COLORREF ParseRGB();
 	uint32_t GetRemainingSize();
 
-	UINT GetFlags();
-	void SetFlags(UINT flags);
+	uint32_t GetFlags();
+	void SetFlags(uint32_t flags);
 
 	void GetCurFilename(char** filename);
 	int GetCurLine();
 
-	LPCTSTR LookupToken(int tokenID, keywordArray_t* theTable = NULL);
+	const char *LookupToken(int tokenID, keywordArray_t* theTable = NULL);
 
 protected:
-	void SetError(int theError, LPCTSTR errString); 
-	virtual void Init(UINT dwFlags = 0);
+	void SetError(int theError, const char *errString); 
+	virtual void Init(uint32_t dwFlags = 0);
 	CToken* FetchToken();
 	bool AddDefineSymbol(CDirectiveSymbol* definesymbol);
 	bool NextChar(byte& theByte);
 	byte Escapement();
-	void InsertSymbol(LPCTSTR theSymbol, int theValue);
-	void PutBackChar(byte theByte, int curLine = 0, LPCTSTR filename = NULL);
-	CToken* TokenFromName(LPCTSTR name);
+	void InsertSymbol(const char *theSymbol, int theValue);
+	void PutBackChar(byte theByte, int curLine = 0, const char *filename = NULL);
+	CToken* TokenFromName(const char *name);
 	CToken* HandleDirective();
 	CToken* HandleSlash();
 	CToken* HandleString();
@@ -442,7 +442,7 @@ protected:
 	CToken* HandleSymbol(byte theByte);
 	CToken* HandleHex(bool thesize);
 	CToken* HandleOctal(bool thesize);
-	int DirectiveFromName(LPCTSTR name);
+	int DirectiveFromName(const char *name);
 
 	CParseStream*			m_curParseStream;
 	keywordArray_t*			m_keywords;
@@ -452,7 +452,7 @@ protected:
 	CToken*					m_nextToken;
 	CSymbolTable			m_defines;
 	CTokenizerState*		m_state;
-	UINT					m_flags;
+	uint32_t					m_flags;
 	LPTokenizerErrorProc	m_errorProc;
 
 	static keywordArray_t errorMessages[];
@@ -475,7 +475,7 @@ class CParsePutBack : public CParseStream
 public:
 	CParsePutBack();
 	~CParsePutBack();
-	static CParsePutBack* Create(byte theByte, int curLine, LPCTSTR filename);
+	static CParsePutBack* Create(byte theByte, int curLine, const char *filename);
 	virtual void Delete();
 	virtual bool NextChar(byte& theByte);
 	virtual int GetCurLine();
@@ -483,7 +483,7 @@ public:
 	virtual uint32_t GetRemainingSize();
 
 protected:
-	virtual void Init(byte theByte, int curLine, LPCTSTR filename);
+	virtual void Init(byte theByte, int curLine, const char *filename);
 
 	byte			m_byte;
 	bool			m_consumed;
@@ -568,7 +568,7 @@ public:
 	CParseFile();
 	~CParseFile();
 	static CParseFile* Create();
-	static CParseFile* Create(LPCTSTR filename, CTokenizer* tokenizer);
+	static CParseFile* Create(const char *filename, CTokenizer* tokenizer);
 //	static CParseFile* Create(CFile* file, CTokenizer* tokenizer);
 	virtual void Delete();
 	virtual int GetCurLine();
@@ -579,10 +579,10 @@ public:
 
 protected:
 	virtual bool Init();
-	virtual bool Init(LPCTSTR filename, CTokenizer* tokenizer);
+	virtual bool Init(const char *filename, CTokenizer* tokenizer);
 //	virtual void Init(CFile* file, CTokenizer* tokenizer);
-	DWORD GetFileSize();
-	void Read(void* buff, UINT buffsize);
+	uint32_t GetFileSize();
+	void Read(void* buff, uint32_t buffsize);
 
 //	CFile*			m_file;
 	HANDLE			m_fileHandle;
@@ -590,8 +590,8 @@ protected:
 	int				m_curLine;
 	int				m_curPos;
 	byte*			m_buff;
-	DWORD			m_curByte;
-	DWORD			m_filesize;
+	uint32_t			m_curByte;
+	uint32_t			m_filesize;
 	bool			m_ownsFile;
 };
 

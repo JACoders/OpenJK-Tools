@@ -319,7 +319,7 @@ GetMember
 CBlockMember *CBlock::GetMember( int memberNum )
 {
 	if ( memberNum > m_numMembers-1 )
-		return false;
+		return NULL;
 
 	return m_members[ memberNum ];
 }
@@ -352,7 +352,7 @@ CBlock *CBlock::Duplicate( void )
 	newblock = new CBlock;
 
 	if ( newblock == NULL )
-		return false;
+		return NULL;
 
 	newblock->Create( m_id );
 
@@ -512,8 +512,9 @@ Create
 
 int CBlockStream::Create( char *filename )
 {
-	char	newName[MAX_FILENAME_LENGTH], *id_header = IBI_HEADER_ID;
-	float	version = IBI_VERSION;
+	char newName[MAX_FILENAME_LENGTH];
+	const char *id_header = IBI_HEADER_ID;
+	float version = IBI_VERSION;
 	
 	//Clear the temp string
 	memset(newName, 0, sizeof(newName));
@@ -526,7 +527,7 @@ int CBlockStream::Create( char *filename )
 	//Recover that as the active filename
 	strcpy(m_fileName, newName);
 
-	if ( ((m_fileHandle = fopen(m_fileName, "wb")) == NULL) )
+	if ((m_fileHandle = fopen(m_fileName, "wb")) == NULL)
 	{
 		return false;
 	}

@@ -26,7 +26,7 @@ NULL_Error
 -------------------------
 */
 
-void NULL_Error( LPCSTR *error_msg )
+void NULL_Error( const char *error_msg )
 {
 }
 
@@ -190,7 +190,7 @@ int main(int argc, char* argv[])
 			{
 				//File wasn't found
 				sprintf(error_msg, "ERROR: File '%s' not found!\n", filename);
-				printf(error_msg);
+				printf("%s", error_msg);
 				
 #ifdef _WIN32
 				if (error_pause)
