@@ -1,5 +1,5 @@
 // Tokenizer.cpp
-#include "Tokenizer.h"
+#include "tokenizer.h"
 
 enum
 {

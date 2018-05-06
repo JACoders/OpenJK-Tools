@@ -6,7 +6,7 @@
 #pragma warning(disable : 4710)  //member not inlined
 
 #include <string.h>
-#include "BlockStream.h"
+#include "blockstream.h"
 
 /*
 ===================================================================================================

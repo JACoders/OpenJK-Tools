@@ -9,9 +9,9 @@
 #include "ibize_platform.h"
 #endif
 
-#include "Tokenizer.h"
-#include "BlockStream.h"
-#include "Interpreter.h"
+#include "tokenizer.h"
+#include "blockstream.h"
+#include "interpreter.h"
 
 #define IBIZE_VERSION		1.6f
 #define SCRIPT_EXTENSION	".ICR"
