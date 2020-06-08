@@ -90,6 +90,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_VIEW_LOD5, OnViewLod5)
 	ON_COMMAND(ID_VIEW_LOD6, OnViewLod6)
 	ON_COMMAND(ID_VIEW_LOD7, OnViewLod7)
+	ON_COMMAND(ID_VIEW_LOD8, OnViewLod8)
+	ON_COMMAND(ID_VIEW_LOD9, OnViewLod9)
 	ON_COMMAND(ID_EDIT_BGRNDCOLOUR, OnEditBgrndcolour)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_BONEHILITE, OnUpdateViewBonehilite)
 	ON_COMMAND(ID_VIEW_BONEHILITE, OnViewBonehilite)
@@ -602,6 +604,18 @@ void CMainFrame::OnViewLod6()
 void CMainFrame::OnViewLod7() 
 {
 	AppVars.iLOD = 7;
+	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnViewLod8() 
+{
+	AppVars.iLOD = 8;
+	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnViewLod9() 
+{
+	AppVars.iLOD = 9;
 	m_splitter.Invalidate(false);
 }
 

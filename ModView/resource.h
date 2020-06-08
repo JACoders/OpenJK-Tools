@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by modview.rc
+// Used by ModView.rc
 //
 #define IDREFRESH                       2
 #define IDGALLERY                       3
@@ -101,8 +101,8 @@
 #define ID_SURFACE_DELETEMODELBOLTEDTOTHISSURFACE 32842
 #define ID_VIEW_LOD3                    32844
 #define ID_VIEW_LOD4                    32845
-#define ID_VIEW_LOD6                    32846
-#define ID_VIEW_LOD5                    32847
+#define ID_VIEW_LOD5                    32846
+#define ID_VIEW_LOD6                    32847
 #define ID_VIEW_LOD7                    32848
 #define ID_FILE_MIPMAPTEXTURES          32849
 #define ID_PICMIP_0                     32850
@@ -178,6 +178,10 @@
 #define ID_ANIMATION_ENDFRAME           32935
 #define ID_SEQUENCES_SORTALPHABETICALLY 32936
 #define IDM_GLMSURFACE_CLEARROOT        32937
+#define ID_VIEW_LOD8                    32938
+#define ID_VIEW_LOD9                    32939
+#define ID_VIEW_LOD10                   32940
+
 
 // Next default values for new objects
 // 
@@ -185,7 +189,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
 #define _APS_NEXT_RESOURCE_VALUE        151
-#define _APS_NEXT_COMMAND_VALUE         32938
+#define _APS_NEXT_COMMAND_VALUE         32941
 #define _APS_NEXT_CONTROL_VALUE         1005
 #define _APS_NEXT_SYMED_VALUE           103
 #endif

@@ -88,6 +88,8 @@ protected:
 	afx_msg void OnViewLod5();
 	afx_msg void OnViewLod6();
 	afx_msg void OnViewLod7();
+	afx_msg void OnViewLod8();
+	afx_msg void OnViewLod9();
 	afx_msg void OnEditBgrndcolour();
 	afx_msg void OnUpdateViewBonehilite(CCmdUI* pCmdUI);
 	afx_msg void OnViewBonehilite();
