@@ -175,6 +175,16 @@ protected:
 public:
 	void StatusMessage(LPCTSTR message);
 	afx_msg void OnFileBatchconvert();
+	afx_msg void OnUpdateViewLod0(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod1(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod2(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod3(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod4(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod5(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod6(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod7(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod8(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod9(CCmdUI *pCmdUI);
 };
 
 /////////////////////////////////////////////////////////////////////////////

@@ -199,16 +199,19 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Cycle FOV ( 10 / 80 / 90 Degrees )\tCTRL-D", ID_VIEW_FOVCYCLE
         MENUITEM SEPARATOR
-        MENUITEM "LOD 1\tF1",                   ID_VIEW_LOD0
-        MENUITEM "LOD 2\tF2",                   ID_VIEW_LOD1
-        MENUITEM "LOD 3\tF3",                   ID_VIEW_LOD2
-        MENUITEM "LOD 4\tF4",                   ID_VIEW_LOD3
-        MENUITEM "LOD 5\tF5",                   ID_VIEW_LOD4
-        MENUITEM "LOD 6\tF6",                   ID_VIEW_LOD5
-        MENUITEM "LOD 7\tF7",                   ID_VIEW_LOD6
-        MENUITEM "LOD 8\tF8",                   ID_VIEW_LOD7
-        MENUITEM "LOD 9\tF9",                   ID_VIEW_LOD8
-        MENUITEM "LOD 10\tF10",                 ID_VIEW_LOD9
+        POPUP "Level-of-Detail (LOD)"
+        BEGIN
+            MENUITEM "LOD 1\tF1",                   ID_VIEW_LOD0
+            MENUITEM "LOD 2\tF2",                   ID_VIEW_LOD1
+            MENUITEM "LOD 3\tF3",                   ID_VIEW_LOD2
+            MENUITEM "LOD 4\tF4",                   ID_VIEW_LOD3
+            MENUITEM "LOD 5\tF5",                   ID_VIEW_LOD4
+            MENUITEM "LOD 6\tF6",                   ID_VIEW_LOD5
+            MENUITEM "LOD 7\tF7",                   ID_VIEW_LOD6
+            MENUITEM "LOD 8\tF8",                   ID_VIEW_LOD7
+            MENUITEM "LOD 9\tF9",                   ID_VIEW_LOD8
+            MENUITEM "LOD 10\tF10",                 ID_VIEW_LOD9
+        END
         MENUITEM SEPARATOR
         MENUITEM "Picmip 0\tCTRL-F1",           ID_PICMIP_0
         MENUITEM "Picmip 1\tCTRL-F2",           ID_PICMIP_1
@@ -672,6 +675,16 @@ END
 
 STRINGTABLE
 BEGIN
+    ID_VIEW_LOD4            "View models in lower LOD (if available)"
+    ID_VIEW_LOD5            "View models in lower LOD (if available)"
+    ID_VIEW_LOD6            "View models in lower LOD (if available)"
+    ID_VIEW_LOD7            "View models in lower LOD (if available)"
+    ID_VIEW_LOD8            "View models in lower LOD (if available)"
+    ID_VIEW_LOD9            "View models in lowest LOD (if available)"
+END
+
+STRINGTABLE
+BEGIN
     ID_FILE_MIPMAPTEXTURES  "Test function to see if mipmapping causes texture boundary problems"
     ID_PICMIP_0             "Re-upload textures using this picmip value"
     ID_PICMIP_1             "Re-upload textures using this picmip value"
@@ -803,16 +816,6 @@ END
 STRINGTABLE
 BEGIN
     ID_ANIMATION_PREVFRAME  "Decrease current anim frame\nFrame decrement"
-    ID_VIEW_LOD0            "View Models in highest LOD"
-    ID_VIEW_LOD1            "View models in medium LOD (if available)"
-    ID_VIEW_LOD2            "View models in lowest LOD (if available)"
-    ID_VIEW_LOD3            "View models in lowest LOD (if available)"
-    ID_VIEW_LOD4            "View models in lowest LOD (if available)"
-    ID_VIEW_LOD5            "View models in lowest LOD (if available)"
-    ID_VIEW_LOD6            "View models in lowest LOD (if available)"
-    ID_VIEW_LOD7            "View models in lowest LOD (if available)"
-    ID_VIEW_LOD8            "View models in lowest LOD (if available)"
-    ID_VIEW_LOD9            "View models in lowest LOD (if available)"
     ID_EDIT_BGRNDCOLOUR     "Have a guess, go on..."
     ID_VIEW_BONEHILITE      "Highlight bones in 3d view (if present in model) when selected in treeview"
     ID_VIEW_NORMALS         "Displays vert-normal lines"
@@ -829,18 +832,19 @@ END
 
 STRINGTABLE
 BEGIN
-    ID_FILE_REFRESHTEXTURES "Refresh / reload all textures ( e.g. if you've just saved out a new graphic in another package and want to see it updated )\nRefresh textures"
-    ID_EDIT_TESTFUNCTION    "Used for temp testing of weird bits of code, only works on my machine"
-    IDM_TREE_MODEL_UNBOLTME "Will delete this model and any bolted models from its parent model"
-    ID_FILE_RESETVIEWPARAMS "Reset view position to default ( useful for when model is scrolled offscreen )\nReset viewpos"
-    ID_ANIMATION_STARTWITHWRAPFORCE 
-                            "Start animating, with forced-wrap for non-wrapping sequences\nPlay ( with wrap-force )"
-    ID_FILE_WRITESCRIPT     "Writes out a script file so you can reload all current models in same way later"
-    ID_FILE_READSCRIPT      "Reads in a script file detailing which models are bolted to which etc."
-    ID_VIEW_SURFACEHILITEWITHBONEREFS 
-                            "Only applicable if surface highlighting is on"
-    ID_VIEW_TAGSURFACES     "View the surfaces used for bolting which are normally hidden"
-    ID_VIEW_TAGSASRGB       "Check this to view Red/Green/Blue axis lines, else will show +ve and -ve letters on axis"
+    IDM_GLM_ADDBONEBOLT     "Add a bolt-on model to this bolt point"
+    IDM_SURFACE_ADDBOLT     "Open a browse window to bolt another model to this bolt point, but adding it to anything already bolted there"
+    IDM_GLMTAGSURFACE_ADDBOLT "Add another bolton model to this bolt point"
+    IDM_EDIT_TOPMOST        "Toggle between always-on-top and normal windows modes"
+    ID_VIEW_TRIINDEXES      "Shows triangle indexes numbers in the middle of each triangle"
+    ID_FILE_VIEW_JK2_BOTS   "Pops up a dialog that handles viewing of entries in game/base/botfiles/bots.txt"
+    ID_ANIMATION_ENDFRAME   "Go to End Frame\nGo to End Frame"
+    ID_SEQUENCES_SORTALPHABETICALLY "Toggles between alpha and frame# sorting"
+    IDM_GLMSURFACE_CLEARROOT "Stop considering this surface to be the root"
+    ID_VIEW_LOD0            "View models in highest LOD"
+    ID_VIEW_LOD1            "View models in lower LOD (if available)"
+    ID_VIEW_LOD2            "View models in lower LOD (if available)"
+    ID_VIEW_LOD3            "View models in lower LOD (if available)"
 END
 
 STRINGTABLE
@@ -858,6 +862,22 @@ BEGIN
                             "Delete whatever model is bolted to this tag surface"
     ID_SURFACE_DELETEMODELBOLTEDTOTHISSURFACE 
                             "Delete all models bolted to this tag surface"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_REFRESHTEXTURES "Refresh / reload all textures ( e.g. if you've just saved out a new graphic in another package and want to see it updated )\nRefresh textures"
+    ID_EDIT_TESTFUNCTION    "Used for temp testing of weird bits of code, only works on my machine"
+    IDM_TREE_MODEL_UNBOLTME "Will delete this model and any bolted models from its parent model"
+    ID_FILE_RESETVIEWPARAMS "Reset view position to default ( useful for when model is scrolled offscreen )\nReset viewpos"
+    ID_ANIMATION_STARTWITHWRAPFORCE 
+                            "Start animating, with forced-wrap for non-wrapping sequences\nPlay ( with wrap-force )"
+    ID_FILE_WRITESCRIPT     "Writes out a script file so you can reload all current models in same way later"
+    ID_FILE_READSCRIPT      "Reads in a script file detailing which models are bolted to which etc."
+    ID_VIEW_SURFACEHILITEWITHBONEREFS 
+                            "Only applicable if surface highlighting is on"
+    ID_VIEW_TAGSURFACES     "View the surfaces used for bolting which are normally hidden"
+    ID_VIEW_TAGSASRGB       "Check this to view Red/Green/Blue axis lines, else will show +ve and -ve letters on axis"
 END
 
 STRINGTABLE
@@ -937,19 +957,6 @@ BEGIN
                             "( Allows override-use of different skeletons for Ghoul2 models )"
     ID_VIEW_DOUBLESIDEDPOLYS 
                             "Show all polys as double-sided (except in wireframe)"
-END
-
-STRINGTABLE
-BEGIN
-    IDM_GLM_ADDBONEBOLT     "Add a bolt-on model to this bolt point"
-    IDM_SURFACE_ADDBOLT     "Open a browse window to bolt another model to this bolt point, but adding it to anything already bolted there"
-    IDM_GLMTAGSURFACE_ADDBOLT "Add another bolton model to this bolt point"
-    IDM_EDIT_TOPMOST        "Toggle between always-on-top and normal windows modes"
-    ID_VIEW_TRIINDEXES      "Shows triangle indexes numbers in the middle of each triangle"
-    ID_FILE_VIEW_JK2_BOTS   "Pops up a dialog that handles viewing of entries in game/base/botfiles/bots.txt"
-    ID_ANIMATION_ENDFRAME   "Go to End Frame\nGo to End Frame"
-    ID_SEQUENCES_SORTALPHABETICALLY "Toggles between alpha and frame# sorting"
-    IDM_GLMSURFACE_CLEARROOT "Stop considering this surface to be the root"
 END
 
 #endif    // English (United States) resources

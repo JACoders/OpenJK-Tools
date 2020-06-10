@@ -173,6 +173,16 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_ANIMATION_ENDFRAME, OnAnimationEndframe)
 	//}}AFX_MSG_MAP
 	ON_COMMAND(ID_FILE_BATCHCONVERT, OnFileBatchconvert)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD0, &CMainFrame::OnUpdateViewLod0)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD9, &CMainFrame::OnUpdateViewLod9)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD1, &CMainFrame::OnUpdateViewLod1)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD2, &CMainFrame::OnUpdateViewLod2)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD3, &CMainFrame::OnUpdateViewLod3)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD4, &CMainFrame::OnUpdateViewLod4)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD5, &CMainFrame::OnUpdateViewLod5)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD6, &CMainFrame::OnUpdateViewLod6)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD7, &CMainFrame::OnUpdateViewLod7)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD8, &CMainFrame::OnUpdateViewLod8)
 	END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -565,10 +575,36 @@ void CMainFrame::OnViewLod0()
 	m_splitter.Invalidate(false);
 }
 
+void CMainFrame::OnUpdateViewLod0(CCmdUI *pCmdUI)
+{
+	if ( Model_Loaded() )
+	{
+		if ( AppVars.Container.iNumLODs > 0 )
+			pCmdUI->Enable(TRUE);
+		else
+			pCmdUI->Enable(FALSE);
+	}
+	else
+		pCmdUI->Enable(FALSE);
+}
+
 void CMainFrame::OnViewLod1() 
 {
 	AppVars.iLOD = 1;
 	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnUpdateViewLod1(CCmdUI *pCmdUI)
+{
+	if ( Model_Loaded() )
+	{
+		if ( AppVars.Container.iNumLODs > 1 )
+			pCmdUI->Enable(TRUE);
+		else
+			pCmdUI->Enable(FALSE);
+	}
+	else
+		pCmdUI->Enable(FALSE);
 }
 
 void CMainFrame::OnViewLod2() 
@@ -577,10 +613,36 @@ void CMainFrame::OnViewLod2()
 	m_splitter.Invalidate(false);
 }
 
+void CMainFrame::OnUpdateViewLod2(CCmdUI *pCmdUI)
+{
+	if ( Model_Loaded() )
+	{
+		if ( AppVars.Container.iNumLODs > 2 )
+			pCmdUI->Enable(TRUE);
+		else
+			pCmdUI->Enable(FALSE);
+	}
+	else
+		pCmdUI->Enable(FALSE);
+}
+
 void CMainFrame::OnViewLod3() 
 {
 	AppVars.iLOD = 3;
 	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnUpdateViewLod3(CCmdUI *pCmdUI)
+{
+	if ( Model_Loaded() )
+	{
+		if ( AppVars.Container.iNumLODs > 3 )
+			pCmdUI->Enable(TRUE);
+		else
+			pCmdUI->Enable(FALSE);
+	}
+	else
+		pCmdUI->Enable(FALSE);
 }
 
 void CMainFrame::OnViewLod4() 
@@ -589,10 +651,36 @@ void CMainFrame::OnViewLod4()
 	m_splitter.Invalidate(false);
 }
 
+void CMainFrame::OnUpdateViewLod4(CCmdUI *pCmdUI)
+{
+	if ( Model_Loaded() )
+	{
+		if ( AppVars.Container.iNumLODs > 4 )
+			pCmdUI->Enable(TRUE);
+		else
+			pCmdUI->Enable(FALSE);
+	}
+	else
+		pCmdUI->Enable(FALSE);
+}
+
 void CMainFrame::OnViewLod5() 
 {
 	AppVars.iLOD = 5;
 	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnUpdateViewLod5(CCmdUI *pCmdUI)
+{
+	if ( Model_Loaded() )
+	{
+		if ( AppVars.Container.iNumLODs > 5 )
+			pCmdUI->Enable(TRUE);
+		else
+			pCmdUI->Enable(FALSE);
+	}
+	else
+		pCmdUI->Enable(FALSE);
 }
 
 void CMainFrame::OnViewLod6() 
@@ -601,10 +689,36 @@ void CMainFrame::OnViewLod6()
 	m_splitter.Invalidate(false);
 }
 
+void CMainFrame::OnUpdateViewLod6(CCmdUI *pCmdUI)
+{
+	if ( Model_Loaded() )
+	{
+		if ( AppVars.Container.iNumLODs > 6 )
+			pCmdUI->Enable(TRUE);
+		else
+			pCmdUI->Enable(FALSE);
+	}
+	else
+		pCmdUI->Enable(FALSE);
+}
+
 void CMainFrame::OnViewLod7() 
 {
 	AppVars.iLOD = 7;
 	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnUpdateViewLod7(CCmdUI *pCmdUI)
+{
+	if ( Model_Loaded() )
+	{
+		if ( AppVars.Container.iNumLODs > 7 )
+			pCmdUI->Enable(TRUE);
+		else
+			pCmdUI->Enable(FALSE);
+	}
+	else
+		pCmdUI->Enable(FALSE);
 }
 
 void CMainFrame::OnViewLod8() 
@@ -613,10 +727,36 @@ void CMainFrame::OnViewLod8()
 	m_splitter.Invalidate(false);
 }
 
+void CMainFrame::OnUpdateViewLod8(CCmdUI *pCmdUI)
+{
+	if ( Model_Loaded() )
+	{
+		if ( AppVars.Container.iNumLODs > 8 )
+			pCmdUI->Enable(TRUE);
+		else
+			pCmdUI->Enable(FALSE);
+	}
+	else
+		pCmdUI->Enable(FALSE);
+}
+
 void CMainFrame::OnViewLod9() 
 {
 	AppVars.iLOD = 9;
 	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnUpdateViewLod9(CCmdUI *pCmdUI)
+{
+	if ( Model_Loaded() )
+	{
+		if ( AppVars.Container.iNumLODs > 9 )
+			pCmdUI->Enable(TRUE);
+		else
+			pCmdUI->Enable(FALSE);
+	}
+	else
+		pCmdUI->Enable(FALSE);
 }
 
 void CMainFrame::OnEditBgrndcolour() 
