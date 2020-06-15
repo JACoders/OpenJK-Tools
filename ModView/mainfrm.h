@@ -88,6 +88,18 @@ protected:
 	afx_msg void OnViewLod5();
 	afx_msg void OnViewLod6();
 	afx_msg void OnViewLod7();
+	afx_msg void OnViewLod8();
+	afx_msg void OnViewLod9();
+	afx_msg void OnUpdateViewLod0(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod1(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod2(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod3(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod4(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod5(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod6(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod7(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod8(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewLod9(CCmdUI *pCmdUI);
 	afx_msg void OnEditBgrndcolour();
 	afx_msg void OnUpdateViewBonehilite(CCmdUI* pCmdUI);
 	afx_msg void OnViewBonehilite();
@@ -167,12 +179,16 @@ protected:
 	afx_msg void OnUpdateViewTriindexes(CCmdUI* pCmdUI);
 	afx_msg void OnFileViewJk2Bots();
 	afx_msg void OnAnimationEndframe();
+	afx_msg void OnFileBatchconvert();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
 public:
 	void StatusMessage(LPCTSTR message);
-	afx_msg void OnFileBatchconvert();
+
+private:
+	void OnUpdateViewLod(CCmdUI *pCmdUI, int lod);
+
 };
 
 /////////////////////////////////////////////////////////////////////////////

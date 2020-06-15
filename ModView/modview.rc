@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -83,7 +81,7 @@ IDB_SPLASH              BITMAP                  "Splsh16.bmp"
 // Toolbar
 //
 
-IDR_MAINFRAME TOOLBAR  16, 15
+IDR_MAINFRAME TOOLBAR 16, 15
 BEGIN
     BUTTON      ID_FILE_NEW
     BUTTON      ID_FILE_OPEN
@@ -118,7 +116,7 @@ END
 // Menu
 //
 
-IDR_MAINFRAME MENU 
+IDR_MAINFRAME MENU
 BEGIN
     POPUP "&File"
     BEGIN
@@ -132,8 +130,7 @@ BEGIN
         MENUITEM "Read ""<modelname>.ideal"" file", ID_FILE_READIDEAL
         MENUITEM "Reset/zero model view position", ID_FILE_RESETVIEWPARAMS
         MENUITEM SEPARATOR
-        MENUITEM "Refresh (reload) all current textures\tALT-R", 
-                                                ID_FILE_REFRESHTEXTURES
+        MENUITEM "Refresh (reload) all current textures\tALT-R", ID_FILE_REFRESHTEXTURES
         MENUITEM SEPARATOR
         MENUITEM "Write script",                ID_FILE_WRITESCRIPT
         MENUITEM "Read Script",                 ID_FILE_READSCRIPT
@@ -142,8 +139,7 @@ BEGIN
         MENUITEM "View JK2 Bots",               ID_FILE_VIEW_JK2_BOTS
         MENUITEM SEPARATOR
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT, GRAYED
-        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
-        , GRAYED
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW, GRAYED
         MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
@@ -159,20 +155,13 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "Choose background Colour",    ID_EDIT_BGRNDCOLOUR
         MENUITEM SEPARATOR
-        MENUITEM "Set Floor position to <input  number >", 
-                                                ID_EDIT_SETFLOOR_ABS
-        MENUITEM "Set Floor position to lowest current point of primary model", 
-                                                ID_EDIT_SETFLOOR_CURRENT
+        MENUITEM "Set Floor position to <input  number >", ID_EDIT_SETFLOOR_ABS
+        MENUITEM "Set Floor position to lowest current point of primary model", ID_EDIT_SETFLOOR_CURRENT
         MENUITEM SEPARATOR
-        MENUITEM "Set bone-weight-threshhold to < input number >", 
-                                                ID_EDIT_SETBONEWEIGHT_THRESHHOLD
-
-        MENUITEM "Prompt for GLA overrides during GLM load", 
-                                                IDM_EDIT_ALLOWSKELETONOVERRIDES
-        , CHECKED
+        MENUITEM "Set bone-weight-threshhold to < input number >", ID_EDIT_SETBONEWEIGHT_THRESHHOLD
+        MENUITEM "Prompt for GLA overrides during GLM load", IDM_EDIT_ALLOWSKELETONOVERRIDES, CHECKED
         MENUITEM SEPARATOR
-        MENUITEM "Test Function (works on Ste's machine only!)", 
-                                                ID_EDIT_TESTFUNCTION
+        MENUITEM "Test Function (works on Ste's machine only!)", ID_EDIT_TESTFUNCTION
         MENUITEM SEPARATOR
         MENUITEM "Always on top",               IDM_EDIT_TOPMOST, CHECKED
     END
@@ -183,61 +172,46 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "... as WireFrame\tCTRL-W",    ID_VIEW_WIREFRAME, CHECKED
         MENUITEM "... using Alpha Blend\tCTRL-A", ID_VIEW_ALPHA, CHECKED
-        MENUITEM "... using Interpolation\tCTRL-N", ID_VIEW_INTERPOLATE
-        , CHECKED
+        MENUITEM "... using Interpolation\tCTRL-N", ID_VIEW_INTERPOLATE, CHECKED
         MENUITEM "... using Filtering\tCTRL-F", ID_VIEW_BILINEAR, CHECKED
         MENUITEM "... showing Origin lines\tCTRL-O", ID_VIEW_ORIGIN, CHECKED
-        MENUITEM "... using Bone Highlighting\tCTRL-B", ID_VIEW_BONEHILITE
-        , CHECKED
-        MENUITEM "... using Bone weight-threshhold-filtering\tCTRL-G", 
-                                                ID_VIEW_BONEFILTERING
-        , CHECKED
-        MENUITEM "... using Surface Highlighting\tCTRL-S", 
-                                                ID_VIEW_SURFACEHILITE
-        , CHECKED
-        MENUITEM "      ( surface highlighting also shows Bone Refs? )", 
-                                                ID_VIEW_SURFACEHILITEWITHBONEREFS
-        , CHECKED
-        MENUITEM "... showing Tri Indexes (only when surface-highlit)\tCTRL-J", 
-                                                ID_VIEW_TRIINDEXES, CHECKED
-        MENUITEM "... showing Vert Indexes (only when surface-highlit)\tCTRL-I", 
-                                                ID_VIEW_VERTINDEXES, CHECKED
-        MENUITEM "      ( Vert Indexes also show Bone Weighting? )\tCTRL-E", 
-                                                ID_VIEW_VERTWEIGHTING
-        , CHECKED
-        MENUITEM "... showing Vertex Normals-Display\tCTRL-V", 
-                                                ID_VIEW_NORMALS, CHECKED
-        MENUITEM "... showing actual tag-surfaces\tCTRL-T", 
-                                                ID_VIEW_TAGSURFACES
-        MENUITEM "... showing RGB lines for origins instead of axis-lines", 
-                                                ID_VIEW_TAGSASRGB, CHECKED
+        MENUITEM "... using Bone Highlighting\tCTRL-B", ID_VIEW_BONEHILITE, CHECKED
+        MENUITEM "... using Bone weight-threshhold-filtering\tCTRL-G", ID_VIEW_BONEFILTERING, CHECKED
+        MENUITEM "... using Surface Highlighting\tCTRL-S", ID_VIEW_SURFACEHILITE, CHECKED
+        MENUITEM "      ( surface highlighting also shows Bone Refs? )", ID_VIEW_SURFACEHILITEWITHBONEREFS, CHECKED
+        MENUITEM "... showing Tri Indexes (only when surface-highlit)\tCTRL-J", ID_VIEW_TRIINDEXES, CHECKED
+        MENUITEM "... showing Vert Indexes (only when surface-highlit)\tCTRL-I", ID_VIEW_VERTINDEXES, CHECKED
+        MENUITEM "      ( Vert Indexes also show Bone Weighting? )\tCTRL-E", ID_VIEW_VERTWEIGHTING, CHECKED
+        MENUITEM "... showing Vertex Normals-Display\tCTRL-V", ID_VIEW_NORMALS, CHECKED
+        MENUITEM "... showing actual tag-surfaces\tCTRL-T", ID_VIEW_TAGSURFACES
+        MENUITEM "... showing RGB lines for origins instead of axis-lines", ID_VIEW_TAGSASRGB, CHECKED
         MENUITEM "... showing height Ruler\tCTRL-R", ID_VIEW_RULER, CHECKED
         MENUITEM "... showing bounding box\tCTRL-U", ID_VIEW_BBOX, CHECKED
         MENUITEM "... showing floor\tCTRL-L",   ID_VIEW_FLOOR, CHECKED
-        MENUITEM "... using Forced-white textures (for crack-finding)\tCTRL-H", 
-                                                ID_VIEW_FORCEWHITE, CHECKED
-        MENUITEM "... using auto Crack-Highlighter (experimental)\tCTRL-K", 
-                                                ID_VIEW_CRACKVIEWER, CHECKED
-        MENUITEM "... showing unShadowable surfaces\t", 
-                                                ID_VIEW_UNSHADOWABLESURFACES
-        , CHECKED
-        MENUITEM "... showing all polys as double-sided", 
-                                                ID_VIEW_DOUBLESIDEDPOLYS
-        , CHECKED
+        MENUITEM "... using Forced-white textures (for crack-finding)\tCTRL-H", ID_VIEW_FORCEWHITE, CHECKED
+        MENUITEM "... using auto Crack-Highlighter (experimental)\tCTRL-K", ID_VIEW_CRACKVIEWER, CHECKED
+        MENUITEM "... showing unShadowable surfaces\t", ID_VIEW_UNSHADOWABLESURFACES, CHECKED
+        MENUITEM "... showing all polys as double-sided", ID_VIEW_DOUBLESIDEDPOLYS, CHECKED
         MENUITEM SEPARATOR
         MENUITEM "Screenshot to file\tSHIFT-C", ID_VIEW_SCREENSHOT_FILE
-        MENUITEM "Screenshot to clipboard\tCTRL-C", 
-                                                ID_VIEW_SCREENSHOT_CLIPBOARD
-        MENUITEM "Remove all highlights/text etc before taking screenshot", 
-                                                ID_VIEW_SCREENSHOT_CLEAN
-        , CHECKED
+        MENUITEM "Screenshot to clipboard\tCTRL-C", ID_VIEW_SCREENSHOT_CLIPBOARD
+        MENUITEM "Remove all highlights/text etc before taking screenshot", ID_VIEW_SCREENSHOT_CLEAN, CHECKED
         MENUITEM SEPARATOR
-        MENUITEM "Cycle FOV ( 10 / 80 / 90 Degrees )\tCTRL-D", 
-                                                ID_VIEW_FOVCYCLE
+        MENUITEM "Cycle FOV ( 10 / 80 / 90 Degrees )\tCTRL-D", ID_VIEW_FOVCYCLE
         MENUITEM SEPARATOR
-        MENUITEM "LOD 1\tF1",                   ID_VIEW_LOD0
-        MENUITEM "LOD 2\tF2",                   ID_VIEW_LOD1
-        MENUITEM "LOD 3\tF3",                   ID_VIEW_LOD2
+        POPUP "Level-of-Detail (LOD)"
+        BEGIN
+            MENUITEM "LOD 1\tF1",                   ID_VIEW_LOD0
+            MENUITEM "LOD 2\tF2",                   ID_VIEW_LOD1
+            MENUITEM "LOD 3\tF3",                   ID_VIEW_LOD2
+            MENUITEM "LOD 4\tF4",                   ID_VIEW_LOD3
+            MENUITEM "LOD 5\tF5",                   ID_VIEW_LOD4
+            MENUITEM "LOD 6\tF6",                   ID_VIEW_LOD5
+            MENUITEM "LOD 7\tF7",                   ID_VIEW_LOD6
+            MENUITEM "LOD 8\tF8",                   ID_VIEW_LOD7
+            MENUITEM "LOD 9\tF9",                   ID_VIEW_LOD8
+            MENUITEM "LOD 10\tF10",                 ID_VIEW_LOD9
+        END
         MENUITEM SEPARATOR
         MENUITEM "Picmip 0\tCTRL-F1",           ID_PICMIP_0
         MENUITEM "Picmip 1\tCTRL-F2",           ID_PICMIP_1
@@ -249,16 +223,13 @@ BEGIN
     POPUP "&Animation"
     BEGIN
         MENUITEM "... Start\tCTRL-UP Arrow",    ID_ANIMATION_START
-        MENUITEM "... Start (with wrap-forcing)\tALT-UP Arrow", 
-                                                ID_ANIMATION_STARTWITHWRAPFORCE
-
+        MENUITEM "... Start (with wrap-forcing)\tALT-UP Arrow", ID_ANIMATION_STARTWITHWRAPFORCE
         MENUITEM "... Stop\tSPACE",             ID_ANIMATION_STOP
         MENUITEM "... Rewind\tCTRL-DW Arrow",   ID_ANIMATION_REWIND
         MENUITEM "... Go to End Frame",         ID_ANIMATION_ENDFRAME
         MENUITEM "... Faster\tCTRL-RT Arrow",   ID_ANIMATION_FASTER
         MENUITEM "... Slower\tCTRL-LT Arrow",   ID_ANIMATION_SLOWER
-        MENUITEM "... NextFrame (turns off animation and lerping)\t>", 
-                                                ID_ANIMATION_NEXTFRAME
+        MENUITEM "... NextFrame (turns off animation and lerping)\t>", ID_ANIMATION_NEXTFRAME
         MENUITEM "... PrevFrame ( "" "" )\t<",  ID_ANIMATION_PREVFRAME
         MENUITEM SEPARATOR
         MENUITEM "... Interpolation?\tCTRL-N",  ID_ANIMATION_LERPING
@@ -269,7 +240,7 @@ BEGIN
     END
 END
 
-IDR_TREEPOPUP_MODEL MENU 
+IDR_TREEPOPUP_MODEL MENU
 BEGIN
     POPUP "Model"
     BEGIN
@@ -282,7 +253,7 @@ BEGIN
     END
 END
 
-IDR_TREEPOPUP_GLMSURFACE MENU 
+IDR_TREEPOPUP_GLMSURFACE MENU
 BEGIN
     POPUP "Surface"
     BEGIN
@@ -291,76 +262,56 @@ BEGIN
         MENUITEM "Info",                        IDM_GLMSURFACE_INFO
         MENUITEM "Set status: ON",              IDM_GLMSURFACE_ON
         MENUITEM "Set status: OFF",             IDM_GLMSURFACE_OFF
-        MENUITEM "Set status: OFF + NO DESCENDANTS", 
-                                                IDM_GLMSURFACE_NODESCENDANTS
+        MENUITEM "Set status: OFF + NO DESCENDANTS", IDM_GLMSURFACE_NODESCENDANTS
         MENUITEM SEPARATOR
         MENUITEM "Set this surface as root",    IDM_GLMSURFACE_SETASROOT
-        MENUITEM "Clear this surface from being root", 
-                                                IDM_GLMSURFACE_CLEARROOT
+        MENUITEM "Clear this surface from being root", IDM_GLMSURFACE_CLEARROOT
         MENUITEM SEPARATOR
-        MENUITEM "Bolt model to this tag surface ( deleting any others already here )", 
-                                                IDM_SURFACE_BOLT
-        MENUITEM "Bolt model to this tag surface ( adding to any already here )", 
-                                                IDM_SURFACE_ADDBOLT
-        MENUITEM "Delete all models bolted to this tag surface", 
-                                                ID_SURFACE_DELETEMODELBOLTEDTOTHISSURFACE
-
+        MENUITEM "Bolt model to this tag surface ( deleting any others already here )", IDM_SURFACE_BOLT
+        MENUITEM "Bolt model to this tag surface ( adding to any already here )", IDM_SURFACE_ADDBOLT
+        MENUITEM "Delete all models bolted to this tag surface", ID_SURFACE_DELETEMODELBOLTEDTOTHISSURFACE
     END
 END
 
-IDR_TREEPOPUP_GLMBONE MENU 
+IDR_TREEPOPUP_GLMBONE MENU
 BEGIN
     POPUP "Bone"
     BEGIN
         MENUITEM "( title )",                   IDM_GLMBONE_TITLE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Info",                        IDM_GLMBONE_INFO
-        MENUITEM "Bolt model to this bone ( deleting any others already here )", 
-                                                IDM_GLM_BONEBOLT
-        MENUITEM "Bolt model to this bone ( adding to any already here )", 
-                                                IDM_GLM_ADDBONEBOLT
-        MENUITEM "Delete all models bolted to this bone", 
-                                                IDM_GLM_BONECLEARBOLT
+        MENUITEM "Bolt model to this bone ( deleting any others already here )", IDM_GLM_BONEBOLT
+        MENUITEM "Bolt model to this bone ( adding to any already here )", IDM_GLM_ADDBONEBOLT
+        MENUITEM "Delete all models bolted to this bone", IDM_GLM_BONECLEARBOLT
         MENUITEM "Set as secondary Anim Start", IDM_GLM_BONE_LOWERANIMSTART
     END
 END
 
-IDR_TREEPOPUP_SEQUENCES MENU 
+IDR_TREEPOPUP_SEQUENCES MENU
 BEGIN
     POPUP "Sequences"
     BEGIN
         MENUITEM "( Sequences Popup )",         ID_JUNK, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Toggle pathnames on/off in sequence treeitems (if available)", 
-                                                ID_SEQUENCES_VIEWFULLPATH
-        MENUITEM "Sort by Alpha ( unchecked = Sort by Frame # )", 
-                                                ID_SEQUENCES_SORTALPHABETICALLY
-        , CHECKED
+        MENUITEM "Toggle pathnames on/off in sequence treeitems (if available)", ID_SEQUENCES_VIEWFULLPATH
+        MENUITEM "Sort by Alpha ( unchecked = Sort by Frame # )", ID_SEQUENCES_SORTALPHABETICALLY, CHECKED
         MENUITEM SEPARATOR
         MENUITEM "Unlock All",                  ID_SEQS_UNLOCKALL
         MENUITEM SEPARATOR
         MENUITEM "Unlock Primary Sequence",     ID_SEQS_UNLOCK_PRIMARY
         MENUITEM "Unlock Secondary Sequence",   ID_SEQS_UNLOCK_SECONDARY
         MENUITEM SEPARATOR
-        MENUITEM "Enable Primary Multi-Sequence locking ?", 
-                                                ID_MULTISEQS_UNLOCK_PRIMARY
-        , CHECKED
-        MENUITEM "Delete last Primary Multi-Lock entry", 
-                                                ID_SEQS_DELETELAST_PRIMARY
-        MENUITEM "Delete all Primary Multi-Lock sequences", 
-                                                ID_SEQS_DELETEALL_PRIMARY
+        MENUITEM "Enable Primary Multi-Sequence locking ?", ID_MULTISEQS_UNLOCK_PRIMARY, CHECKED
+        MENUITEM "Delete last Primary Multi-Lock entry", ID_SEQS_DELETELAST_PRIMARY
+        MENUITEM "Delete all Primary Multi-Lock sequences", ID_SEQS_DELETEALL_PRIMARY
         MENUITEM SEPARATOR
-        MENUITEM "Enable Secondary Multi-Sequence locking ?", 
-                                                ID_MULTISEQS_UNLOCK_SECONDARY
-        , CHECKED
-        MENUITEM "Delete last Secondary Multi-Lock entry", 
-                                                ID_SEQS_DELETELAST_SECONDARY
-        MENUITEM "Delete all Secondary Multi-Lock sequences", 
-                                                ID_SEQS_DELETEALL_SECONDARY
+        MENUITEM "Enable Secondary Multi-Sequence locking ?", ID_MULTISEQS_UNLOCK_SECONDARY, CHECKED
+        MENUITEM "Delete last Secondary Multi-Lock entry", ID_SEQS_DELETELAST_SECONDARY
+        MENUITEM "Delete all Secondary Multi-Lock sequences", ID_SEQS_DELETEALL_SECONDARY
     END
 END
 
-IDR_TREEPOPUP_SEQUENCE MENU 
+IDR_TREEPOPUP_SEQUENCE MENU
 BEGIN
     POPUP "Sequence"
     BEGIN
@@ -369,20 +320,16 @@ BEGIN
         MENUITEM "Lock this sequence",          ID_SEQ_LOCK
         MENUITEM "Unlock this sequence",        ID_SEQ_UNLOCK
         MENUITEM "Multi-Lock this sequence",    ID_SEQ_MULTILOCK
-        MENUITEM "Delete this sequence from Multi-Lock", 
-                                                ID_SEQ_MULTILOCK_DELETE
+        MENUITEM "Delete this sequence from Multi-Lock", ID_SEQ_MULTILOCK_DELETE
         MENUITEM SEPARATOR
         MENUITEM "Lock this Secondary Sequence", ID_SEQ_LOCK_SECONDARY
         MENUITEM "Unlock this Secondary Sequence", ID_SEQ_UNLOCK_SECONDARY
-        MENUITEM "Multi-Lock this Secondary sequence", 
-                                                ID_SEQ_MULTILOCK_SECONDARY
-        MENUITEM "Delete this sequence from Multi-Lock", 
-                                                ID_SEQ_MULTILOCK_SECONDARY_DELETE
-
+        MENUITEM "Multi-Lock this Secondary sequence", ID_SEQ_MULTILOCK_SECONDARY
+        MENUITEM "Delete this sequence from Multi-Lock", ID_SEQ_MULTILOCK_SECONDARY_DELETE
     END
 END
 
-IDR_TREEPOPUP_SURFACES MENU 
+IDR_TREEPOPUP_SURFACES MENU
 BEGIN
     POPUP "Surfaces"
     BEGIN
@@ -391,21 +338,15 @@ BEGIN
         MENUITEM "Expand all surfaces",         IDR_TREE_SURFACES_EXPANDALL
         MENUITEM "Find Surface named...<xxx>",  ID_SURFACES_FIND
         MENUITEM SEPARATOR
-        MENUITEM "Disable all hidden (""..._off"") surfaces", 
-                                                IDR_TREE_SURFACES_ALLDEFAULTOFF_OFF
-
-        MENUITEM "Enable all hidden (""..._off"") surfaces", 
-                                                IDR_TREE_SURFACES_ALLDEFAULTOFF_ON
-
-        MENUITEM "Default all surfaces to original on/off state", 
-                                                IDR_TREE_SURFACES_ALLDEFAULTOFF_DEFAULT
-
+        MENUITEM "Disable all hidden (""..._off"") surfaces", IDR_TREE_SURFACES_ALLDEFAULTOFF_OFF
+        MENUITEM "Enable all hidden (""..._off"") surfaces", IDR_TREE_SURFACES_ALLDEFAULTOFF_ON
+        MENUITEM "Default all surfaces to original on/off state", IDR_TREE_SURFACES_ALLDEFAULTOFF_DEFAULT
         MENUITEM SEPARATOR
         MENUITEM "Clear overriden root surface", IDR_TREE_SURFACES_CLEARROOT
     END
 END
 
-IDR_TREEPOPUP_BONES MENU 
+IDR_TREEPOPUP_BONES MENU
 BEGIN
     POPUP "Bones"
     BEGIN
@@ -418,35 +359,30 @@ BEGIN
     END
 END
 
-IDR_TREEPOPUP_GLMTAGSURFACE MENU 
+IDR_TREEPOPUP_GLMTAGSURFACE MENU
 BEGIN
     POPUP "Tag Surface"
     BEGIN
-        MENUITEM "( title )",                   IDM_GLMTAGSURFACE_TITLE
-        , GRAYED
+        MENUITEM "( title )",                   IDM_GLMTAGSURFACE_TITLE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Info",                        IDM_GLMTAGSURFACE_INFO
-        MENUITEM "Bolt model to this tag surface ( deleting any others already here )", 
-                                                IDM_GLMTAGSURFACE_BOLT
-        MENUITEM "Bolt model to this tag surface ( adding to any already here )", 
-                                                IDM_GLMTAGSURFACE_ADDBOLT
-        MENUITEM "Delete all models bolted to this tag surface", 
-                                                IDM_GLMTAGSURFACE_DELETEBOLT
+        MENUITEM "Bolt model to this tag surface ( deleting any others already here )", IDM_GLMTAGSURFACE_BOLT
+        MENUITEM "Bolt model to this tag surface ( adding to any already here )", IDM_GLMTAGSURFACE_ADDBOLT
+        MENUITEM "Delete all models bolted to this tag surface", IDM_GLMTAGSURFACE_DELETEBOLT
     END
 END
 
-IDR_TREEPOPUP_TAGSURFACES MENU 
+IDR_TREEPOPUP_TAGSURFACES MENU
 BEGIN
     POPUP "Tag Surfaces"
     BEGIN
         MENUITEM "Tag Surfaces popup",          ID_JUNK, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Expand all tag surfaces",     IDR_TREE_TAGSURFACES_EXPANDALL
-
     END
 END
 
-IDR_TREEPOPUP_SKINS MENU 
+IDR_TREEPOPUP_SKINS MENU
 BEGIN
     POPUP "Skins"
     BEGIN
@@ -457,7 +393,7 @@ BEGIN
     END
 END
 
-IDR_TREEPOPUP_SKIN MENU 
+IDR_TREEPOPUP_SKIN MENU
 BEGIN
     POPUP "Skin"
     BEGIN
@@ -468,7 +404,7 @@ BEGIN
     END
 END
 
-IDR_TREEPOPUP_ETHNIC MENU 
+IDR_TREEPOPUP_ETHNIC MENU
 BEGIN
     POPUP "Ethnicity"
     BEGIN
@@ -476,15 +412,12 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Expand all",                  ID_EXPANDALL
         MENUITEM "Apply this skin",             ID_ETHNIC_APPLY
-        MENUITEM "Apply this skin ( with surface on/off prefs )", 
-                                                ID_ETHNIC_APPLYWITHSURFACES
-        MENUITEM "Apply this skin ( with surface on/off defaulting )", 
-                                                ID_ETHNIC_APPLYWITHSURFACEDEFAULTING
-
+        MENUITEM "Apply this skin ( with surface on/off prefs )", ID_ETHNIC_APPLYWITHSURFACES
+        MENUITEM "Apply this skin ( with surface on/off defaulting )", ID_ETHNIC_APPLYWITHSURFACEDEFAULTING
     END
 END
 
-IDR_TREEPOPUP_SHADERVARIANT MENU 
+IDR_TREEPOPUP_SHADERVARIANT MENU
 BEGIN
     POPUP "Shader Variant"
     BEGIN
@@ -494,7 +427,7 @@ BEGIN
     END
 END
 
-IDR_TREEPOPUP_OLDSKINS MENU 
+IDR_TREEPOPUP_OLDSKINS MENU
 BEGIN
     POPUP "OldSkins"
     BEGIN
@@ -504,7 +437,7 @@ BEGIN
     END
 END
 
-IDR_TREEPOPUP_OLDSKIN MENU 
+IDR_TREEPOPUP_OLDSKIN MENU
 BEGIN
     POPUP "OldSkin"
     BEGIN
@@ -521,7 +454,7 @@ END
 // Accelerator
 //
 
-IDR_MAINFRAME ACCELERATORS 
+IDR_MAINFRAME ACCELERATORS
 BEGIN
     ",",            ID_ANIMATION_PREVFRAME, ASCII,  NOINVERT
     ".",            ID_ANIMATION_NEXTFRAME, ASCII,  NOINVERT
@@ -535,8 +468,7 @@ BEGIN
     "F",            ID_VIEW_BILINEAR,       VIRTKEY, CONTROL, NOINVERT
     "G",            ID_VIEW_BONEFILTERING,  VIRTKEY, CONTROL, NOINVERT
     "G",            ID_BONEFILTER_DECTHRESHHOLD, VIRTKEY, SHIFT, NOINVERT
-    "G",            ID_BONEFILTER_INCTHRESHHOLD, VIRTKEY, SHIFT, CONTROL, 
-                                                    NOINVERT
+    "G",            ID_BONEFILTER_INCTHRESHHOLD, VIRTKEY, SHIFT, CONTROL, NOINVERT
     "H",            ID_VIEW_FORCEWHITE,     VIRTKEY, CONTROL, NOINVERT
     "I",            ID_VIEW_VERTINDEXES,    VIRTKEY, CONTROL, NOINVERT
     "J",            ID_VIEW_TRIINDEXES,     VIRTKEY, CONTROL, NOINVERT
@@ -570,6 +502,8 @@ BEGIN
     VK_F7,          ID_PICMIP_6,            VIRTKEY, CONTROL, NOINVERT
     VK_F8,          ID_VIEW_LOD7,           VIRTKEY, NOINVERT
     VK_F8,          ID_PICMIP_7,            VIRTKEY, CONTROL, NOINVERT
+    VK_F9,          ID_VIEW_LOD8,           VIRTKEY, NOINVERT
+    VK_F10,         ID_VIEW_LOD9,           VIRTKEY, NOINVERT
     VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
     VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
     VK_LEFT,        ID_ANIMATION_SLOWER,    VIRTKEY, CONTROL, NOINVERT
@@ -588,23 +522,20 @@ END
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOG  0, 0, 235, 110
+IDD_ABOUTBOX DIALOG 0, 0, 235, 110
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About ModView"
 FONT 8, "MS Sans Serif"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "ModView Version 2.1",IDC_STATIC,41,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2000 .. 2002 Raven Software",IDC_STATIC,
-                    41,41,187,8
+    LTEXT           "Copyright (C) 2000 .. 2002 Raven Software",IDC_STATIC,41,41,187,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
-    LTEXT           "Written by Ste Cork (+ MFC help from Mike Crowns)",
-                    IDC_STATIC,41,25,162,8
-    LTEXT           "Current formats supported:   Ghoul2  ( .GLM / .GLA )",
-                    IDC_STATIC,41,79,165,8
+    LTEXT           "Written by Ste Cork (+ MFC help from Mike Crowns)",IDC_STATIC,41,25,162,8
+    LTEXT           "Current formats supported:   Ghoul2  ( .GLM / .GLA )",IDC_STATIC,41,79,165,8
 END
 
-IDD_DIALOG_GETSTRING DIALOG  0, 0, 254, 105
+IDD_DIALOG_GETSTRING DIALOG 0, 0, 254, 105
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Input String..."
 FONT 8, "MS Sans Serif"
@@ -615,22 +546,19 @@ BEGIN
     EDITTEXT        IDC_EDIT1,13,53,226,14,ES_AUTOHSCROLL
 END
 
-IDD_DIALOG_NPCS DIALOG  0, 0, 383, 340
+IDD_DIALOG_NPCS DIALOG 0, 0, 383, 340
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Character Viewer (SOF2 NPCs or JK2 bots)"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,293,30,77,30
-    LISTBOX         IDC_LIST_NPCS,19,30,263,269,LBS_SORT | LBS_USETABSTOPS | 
-                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_NPCS,19,30,263,269,LBS_SORT | LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     DEFPUSHBUTTON   "Refresh",IDREFRESH,293,64,77,30
-    CTEXT           "( Double-click on an entry to load it )",IDC_STATIC,60,
-                    15,183,11
+    CTEXT           "( Double-click on an entry to load it )",IDC_STATIC,60,15,183,11
     LTEXT           "Comment field",IDC_STATIC_COMMENT,20,305,347,28
     DEFPUSHBUTTON   "Generate Gallery",IDGALLERY,293,233,77,66
     DEFPUSHBUTTON   "Quick Validate",IDVALIDATE,293,98,77,30
-    PUSHBUTTON      "Send List To Notepad",IDC_BUTTON_GENERATE_LIST,293,213,
-                    77,17
+    PUSHBUTTON      "Send List To Notepad",IDC_BUTTON_GENERATE_LIST,293,213,77,17
 END
 
 
@@ -678,7 +606,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -712,18 +640,18 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDR_MAINFRAME           "ModView\n\nModVie\n\n\nModView.Document\nModVie Document"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     AFX_IDS_APP_TITLE       "ModView"
     AFX_IDS_IDLEMESSAGE     "Ready"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_INDICATOR_EXT        "EXT"
     ID_INDICATOR_CAPS       "CAP"
@@ -733,7 +661,7 @@ BEGIN
     ID_INDICATOR_REC        "REC"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_FILE_NEW             "Create a new document\nNew"
     ID_FILE_OPEN            "Open an existing document\nOpen"
@@ -745,7 +673,17 @@ BEGIN
     ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
 END
 
-STRINGTABLE 
+STRINGTABLE
+BEGIN
+    ID_VIEW_LOD4            "View models in lower LOD (if available)"
+    ID_VIEW_LOD5            "View models in lower LOD (if available)"
+    ID_VIEW_LOD6            "View models in lower LOD (if available)"
+    ID_VIEW_LOD7            "View models in lower LOD (if available)"
+    ID_VIEW_LOD8            "View models in lower LOD (if available)"
+    ID_VIEW_LOD9            "View models in lowest LOD (if available)"
+END
+
+STRINGTABLE
 BEGIN
     ID_FILE_MIPMAPTEXTURES  "Test function to see if mipmapping causes texture boundary problems"
     ID_PICMIP_0             "Re-upload textures using this picmip value"
@@ -759,13 +697,13 @@ BEGIN
     ID_SKIN_VALIDATE        "Force a texture-load of all shaders in all variants of this skin file"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
     ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_FILE_MRU_FILE1       "Open this document"
     ID_FILE_MRU_FILE2       "Open this document"
@@ -785,18 +723,18 @@ BEGIN
     ID_FILE_MRU_FILE16      "Open this document"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
     ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_EDIT_CLEAR           "Erase the selection\nErase"
     ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
@@ -811,13 +749,13 @@ BEGIN
     ID_EDIT_REDO            "Redo the previously undone action\nRedo"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
     ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     AFX_IDS_SCSIZE          "Change the window size"
     AFX_IDS_SCMOVE          "Change the window position"
@@ -828,18 +766,18 @@ BEGIN
     AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     AFX_IDS_SCRESTORE       "Restore the window to normal size"
     AFX_IDS_SCTASKLIST      "Activate Task List"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDM_TREE_MODEL_EXPANDALL "Open up everything underneath"
     IDM_TREE_MODEL_CONTRACTALL "Close up everything underneath"
@@ -855,7 +793,7 @@ BEGIN
     ID_VIEW_INTERPOLATE     "Lerp between frames"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_VIEW_BILINEAR        "Toggles texture smoothing"
     ID_VIEW_SCREENSHOT_FILE "Takes a screenshot and saves out (removes onscreen text first)"
@@ -875,12 +813,9 @@ BEGIN
     ID_ANIMATION_NEXTFRAME  "Increase current anim frame\nFrame advance"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_ANIMATION_PREVFRAME  "Decrease current anim frame\nFrame decrement"
-    ID_VIEW_LOD0            "View Models in highest LOD"
-    ID_VIEW_LOD1            "View models in medium LOD (if available)"
-    ID_VIEW_LOD2            "View models in lowest LOD (if available)"
     ID_EDIT_BGRNDCOLOUR     "Have a guess, go on..."
     ID_VIEW_BONEHILITE      "Highlight bones in 3d view (if present in model) when selected in treeview"
     ID_VIEW_NORMALS         "Displays vert-normal lines"
@@ -895,23 +830,24 @@ BEGIN
     IDM_GLMBONE_INFO        "Display general info on this bone"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
-    ID_FILE_REFRESHTEXTURES "Refresh / reload all textures ( e.g. if you've just saved out a new graphic in another package and want to see it updated )\nRefresh textures"
-    ID_EDIT_TESTFUNCTION    "Used for temp testing of weird bits of code, only works on my machine"
-    IDM_TREE_MODEL_UNBOLTME "Will delete this model and any bolted models from its parent model"
-    ID_FILE_RESETVIEWPARAMS "Reset view position to default ( useful for when model is scrolled offscreen )\nReset viewpos"
-    ID_ANIMATION_STARTWITHWRAPFORCE 
-                            "Start animating, with forced-wrap for non-wrapping sequences\nPlay ( with wrap-force )"
-    ID_FILE_WRITESCRIPT     "Writes out a script file so you can reload all current models in same way later"
-    ID_FILE_READSCRIPT      "Reads in a script file detailing which models are bolted to which etc."
-    ID_VIEW_SURFACEHILITEWITHBONEREFS 
-                            "Only applicable if surface highlighting is on"
-    ID_VIEW_TAGSURFACES     "View the surfaces used for bolting which are normally hidden"
-    ID_VIEW_TAGSASRGB       "Check this to view Red/Green/Blue axis lines, else will show +ve and -ve letters on axis"
+    IDM_GLM_ADDBONEBOLT     "Add a bolt-on model to this bolt point"
+    IDM_SURFACE_ADDBOLT     "Open a browse window to bolt another model to this bolt point, but adding it to anything already bolted there"
+    IDM_GLMTAGSURFACE_ADDBOLT "Add another bolton model to this bolt point"
+    IDM_EDIT_TOPMOST        "Toggle between always-on-top and normal windows modes"
+    ID_VIEW_TRIINDEXES      "Shows triangle indexes numbers in the middle of each triangle"
+    ID_FILE_VIEW_JK2_BOTS   "Pops up a dialog that handles viewing of entries in game/base/botfiles/bots.txt"
+    ID_ANIMATION_ENDFRAME   "Go to End Frame\nGo to End Frame"
+    ID_SEQUENCES_SORTALPHABETICALLY "Toggles between alpha and frame# sorting"
+    IDM_GLMSURFACE_CLEARROOT "Stop considering this surface to be the root"
+    ID_VIEW_LOD0            "View models in highest LOD"
+    ID_VIEW_LOD1            "View models in lower LOD (if available)"
+    ID_VIEW_LOD2            "View models in lower LOD (if available)"
+    ID_VIEW_LOD3            "View models in lower LOD (if available)"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDM_GLMTAGSURFACE_INFO  "General info on this tag surface"
     IDM_GLMTAGSURFACE_BOLT  "Open a browse dialog to bolt a model to this surface ( deleting any others already there )"
@@ -928,7 +864,23 @@ BEGIN
                             "Delete all models bolted to this tag surface"
 END
 
-STRINGTABLE 
+STRINGTABLE
+BEGIN
+    ID_FILE_REFRESHTEXTURES "Refresh / reload all textures ( e.g. if you've just saved out a new graphic in another package and want to see it updated )\nRefresh textures"
+    ID_EDIT_TESTFUNCTION    "Used for temp testing of weird bits of code, only works on my machine"
+    IDM_TREE_MODEL_UNBOLTME "Will delete this model and any bolted models from its parent model"
+    ID_FILE_RESETVIEWPARAMS "Reset view position to default ( useful for when model is scrolled offscreen )\nReset viewpos"
+    ID_ANIMATION_STARTWITHWRAPFORCE 
+                            "Start animating, with forced-wrap for non-wrapping sequences\nPlay ( with wrap-force )"
+    ID_FILE_WRITESCRIPT     "Writes out a script file so you can reload all current models in same way later"
+    ID_FILE_READSCRIPT      "Reads in a script file detailing which models are bolted to which etc."
+    ID_VIEW_SURFACEHILITEWITHBONEREFS 
+                            "Only applicable if surface highlighting is on"
+    ID_VIEW_TAGSURFACES     "View the surfaces used for bolting which are normally hidden"
+    ID_VIEW_TAGSASRGB       "Check this to view Red/Green/Blue axis lines, else will show +ve and -ve letters on axis"
+END
+
+STRINGTABLE
 BEGIN
     ID_ETHNIC_APPLY         "Applies this ethnic skin variant (eg black, white etc) to the model"
     ID_EXPANDALL            "Expand all tree items below this one"
@@ -947,7 +899,7 @@ BEGIN
     ID_SEQ_UNLOCK_SECONDARY "Unlock this Secondary Sequence"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_SEQS_UNLOCK_PRIMARY  "Unlock Primary Sequence"
     ID_SEQS_UNLOCK_SECONDARY "Unlock Secondary Sequence"
@@ -968,7 +920,7 @@ BEGIN
     ID_EDIT_SETFLOOR_CURRENT "Like the man says..."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_SEQ_MULTILOCK        "Add this sequence to this model's multi-sequence locking list"
     ID_SEQ_MULTILOCK_SECONDARY 
@@ -992,7 +944,7 @@ BEGIN
     ID_VIEW_CRACKVIEWER     "Speculative code to auto-highlight model cracks"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDM_GLMSURFACE_SETASROOT 
                             "Forces model to start rendering from this surface down, not from actual root"
@@ -1007,20 +959,7 @@ BEGIN
                             "Show all polys as double-sided (except in wireframe)"
 END
 
-STRINGTABLE 
-BEGIN
-    IDM_GLM_ADDBONEBOLT     "Add a bolt-on model to this bolt point"
-    IDM_SURFACE_ADDBOLT     "Open a browse window to bolt another model to this bolt point, but adding it to anything already bolted there"
-    IDM_GLMTAGSURFACE_ADDBOLT "Add another bolton model to this bolt point"
-    IDM_EDIT_TOPMOST        "Toggle between always-on-top and normal windows modes"
-    ID_VIEW_TRIINDEXES      "Shows triangle indexes numbers in the middle of each triangle"
-    ID_FILE_VIEW_JK2_BOTS   "Pops up a dialog that handles viewing of entries in game/base/botfiles/bots.txt"
-    ID_ANIMATION_ENDFRAME   "Go to End Frame\nGo to End Frame"
-    ID_SEQUENCES_SORTALPHABETICALLY "Toggles between alpha and frame# sorting"
-    IDM_GLMSURFACE_CLEARROOT "Stop considering this surface to be the root"
-END
-
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

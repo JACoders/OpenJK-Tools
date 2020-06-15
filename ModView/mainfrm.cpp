@@ -90,6 +90,18 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_VIEW_LOD5, OnViewLod5)
 	ON_COMMAND(ID_VIEW_LOD6, OnViewLod6)
 	ON_COMMAND(ID_VIEW_LOD7, OnViewLod7)
+	ON_COMMAND(ID_VIEW_LOD8, OnViewLod8)
+	ON_COMMAND(ID_VIEW_LOD9, OnViewLod9)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD0, &CMainFrame::OnUpdateViewLod0)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD1, &CMainFrame::OnUpdateViewLod1)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD2, &CMainFrame::OnUpdateViewLod2)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD3, &CMainFrame::OnUpdateViewLod3)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD4, &CMainFrame::OnUpdateViewLod4)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD5, &CMainFrame::OnUpdateViewLod5)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD6, &CMainFrame::OnUpdateViewLod6)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD7, &CMainFrame::OnUpdateViewLod7)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD8, &CMainFrame::OnUpdateViewLod8)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOD9, &CMainFrame::OnUpdateViewLod9)
 	ON_COMMAND(ID_EDIT_BGRNDCOLOUR, OnEditBgrndcolour)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_BONEHILITE, OnUpdateViewBonehilite)
 	ON_COMMAND(ID_VIEW_BONEHILITE, OnViewBonehilite)
@@ -169,8 +181,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_TRIINDEXES, OnUpdateViewTriindexes)
 	ON_COMMAND(ID_FILE_VIEW_JK2_BOTS, OnFileViewJk2Bots)
 	ON_COMMAND(ID_ANIMATION_ENDFRAME, OnAnimationEndframe)
-	//}}AFX_MSG_MAP
 	ON_COMMAND(ID_FILE_BATCHCONVERT, OnFileBatchconvert)
+	//}}AFX_MSG_MAP
 	END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -563,10 +575,20 @@ void CMainFrame::OnViewLod0()
 	m_splitter.Invalidate(false);
 }
 
+void CMainFrame::OnUpdateViewLod0(CCmdUI *pCmdUI)
+{
+	OnUpdateViewLod(pCmdUI, 0);
+}
+
 void CMainFrame::OnViewLod1() 
 {
 	AppVars.iLOD = 1;
 	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnUpdateViewLod1(CCmdUI *pCmdUI)
+{
+	OnUpdateViewLod(pCmdUI, 1);
 }
 
 void CMainFrame::OnViewLod2() 
@@ -575,10 +597,20 @@ void CMainFrame::OnViewLod2()
 	m_splitter.Invalidate(false);
 }
 
+void CMainFrame::OnUpdateViewLod2(CCmdUI *pCmdUI)
+{
+	OnUpdateViewLod(pCmdUI, 2);
+}
+
 void CMainFrame::OnViewLod3() 
 {
 	AppVars.iLOD = 3;
 	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnUpdateViewLod3(CCmdUI *pCmdUI)
+{
+	OnUpdateViewLod(pCmdUI, 3);
 }
 
 void CMainFrame::OnViewLod4() 
@@ -587,10 +619,20 @@ void CMainFrame::OnViewLod4()
 	m_splitter.Invalidate(false);
 }
 
+void CMainFrame::OnUpdateViewLod4(CCmdUI *pCmdUI)
+{
+	OnUpdateViewLod(pCmdUI, 4);
+}
+
 void CMainFrame::OnViewLod5() 
 {
 	AppVars.iLOD = 5;
 	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnUpdateViewLod5(CCmdUI *pCmdUI)
+{
+	OnUpdateViewLod(pCmdUI, 5);
 }
 
 void CMainFrame::OnViewLod6() 
@@ -599,10 +641,55 @@ void CMainFrame::OnViewLod6()
 	m_splitter.Invalidate(false);
 }
 
+void CMainFrame::OnUpdateViewLod6(CCmdUI *pCmdUI)
+{
+	OnUpdateViewLod(pCmdUI, 6);
+}
+
 void CMainFrame::OnViewLod7() 
 {
 	AppVars.iLOD = 7;
 	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnUpdateViewLod7(CCmdUI *pCmdUI)
+{
+	OnUpdateViewLod(pCmdUI, 7);
+}
+
+void CMainFrame::OnViewLod8() 
+{
+	AppVars.iLOD = 8;
+	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnUpdateViewLod8(CCmdUI *pCmdUI)
+{
+	OnUpdateViewLod(pCmdUI, 8);
+}
+
+void CMainFrame::OnViewLod9() 
+{
+	AppVars.iLOD = 9;
+	m_splitter.Invalidate(false);
+}
+
+void CMainFrame::OnUpdateViewLod9(CCmdUI *pCmdUI)
+{
+	OnUpdateViewLod(pCmdUI, 9);
+}
+
+void CMainFrame::OnUpdateViewLod(CCmdUI *pCmdUI, int lod)
+{
+	if ( Model_Loaded() )
+	{
+		if ( AppVars.Container.iNumLODs > lod )
+			pCmdUI->Enable(TRUE);
+		else
+			pCmdUI->Enable(FALSE);
+	}
+	else
+		pCmdUI->Enable(FALSE);
 }
 
 void CMainFrame::OnEditBgrndcolour() 

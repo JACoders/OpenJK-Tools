@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by modview.rc
+// Used by ModView.rc
 //
 #define IDREFRESH                       2
 #define IDGALLERY                       3
@@ -60,9 +60,6 @@
 #define ID_SEQS_UNLOCKALL               32798
 #define ID_ANIMATION_NEXTFRAME          32799
 #define ID_ANIMATION_PREVFRAME          32800
-#define ID_VIEW_LOD0                    32801
-#define ID_VIEW_LOD1                    32802
-#define ID_VIEW_LOD2                    32803
 #define ID_EDIT_BGRNDCOLOUR             32804
 #define ID_VIEW_BONEHILITE              32805
 #define ID_VIEW_NORMALS                 32806
@@ -99,11 +96,6 @@
 #define IDM_SURFACE_BOLT                32840
 #define ID_SURFACE_DELETEMODELBOLTEDTOTHISTAGSURFACE 32841
 #define ID_SURFACE_DELETEMODELBOLTEDTOTHISSURFACE 32842
-#define ID_VIEW_LOD3                    32844
-#define ID_VIEW_LOD4                    32845
-#define ID_VIEW_LOD6                    32846
-#define ID_VIEW_LOD5                    32847
-#define ID_VIEW_LOD7                    32848
 #define ID_FILE_MIPMAPTEXTURES          32849
 #define ID_PICMIP_0                     32850
 #define ID_PICMIP_1                     32851
@@ -178,14 +170,25 @@
 #define ID_ANIMATION_ENDFRAME           32935
 #define ID_SEQUENCES_SORTALPHABETICALLY 32936
 #define IDM_GLMSURFACE_CLEARROOT        32937
+#define ID_VIEW_LOD0                    32940
+#define ID_VIEW_LOD1                    32941
+#define ID_VIEW_LOD2                    32942
+#define ID_VIEW_LOD3                    32943
+#define ID_VIEW_LOD4                    32944
+#define ID_VIEW_LOD5                    32945
+#define ID_VIEW_LOD6                    32946
+#define ID_VIEW_LOD7                    32947
+#define ID_VIEW_LOD8                    32948
+#define ID_VIEW_LOD9                    32949
+#define ID_VIEW_LOD10                   32950
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_3D_CONTROLS                     1
+#define _APS_3D_CONTROLS                1
 #define _APS_NEXT_RESOURCE_VALUE        151
-#define _APS_NEXT_COMMAND_VALUE         32938
+#define _APS_NEXT_COMMAND_VALUE         32951
 #define _APS_NEXT_CONTROL_VALUE         1005
 #define _APS_NEXT_SYMED_VALUE           103
 #endif
