@@ -1,3 +1,10 @@
 *.o
 .*.swp
 
+*.tlog
+*.ipch
+*.sdf
+*.bsc
+*.lastbuildstate
+*.res
+*.idb

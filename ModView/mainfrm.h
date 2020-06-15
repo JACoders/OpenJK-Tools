@@ -185,6 +185,8 @@ protected:
 
 public:
 	void StatusMessage(LPCTSTR message);
+
+private:
 	void OnUpdateViewLod(CCmdUI *pCmdUI, int lod);
 
 };
