@@ -532,7 +532,7 @@ int CBlockStream::Create( char *filename )
 		return false;
 	}
 
-	fwrite( id_header, 1, sizeof(id_header), m_fileHandle );
+	fwrite( id_header, 1, strlen(id_header)+1, m_fileHandle );
 	fwrite( &version, 1, sizeof(version), m_fileHandle );
 
 	return true;
