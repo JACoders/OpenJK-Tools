@@ -5,7 +5,7 @@
 #pragma warning(disable : 4100)  //unref formal parm
 #pragma warning(disable : 4710)  //member not inlined
 
-#include <string.h>
+#include <cstring>
 #include "blockstream.h"
 
 /*

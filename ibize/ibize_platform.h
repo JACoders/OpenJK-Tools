@@ -5,7 +5,9 @@
 #if defined(_WINDOWS)
 #include <windows.h>
 #else
-#include <stdint.h>
+#include <cstdint>
+#include <cstring>
+#include <cstddef>
 typedef uint32_t COLORREF;
 #define stricmp strcasecmp
 #define RGB(r,g,b)          ((COLORREF)((r) | ((g) << 8) | ((b) << 16)))

@@ -5,10 +5,12 @@
 
 #pragma warning(disable : 4786)  //identifier was truncated 
 
-#include <stdio.h>
-
+#include <cstdint>
+#include <cstdio>
+#include <cstdlib>
 #include <list>
 #include <vector>
+
 using namespace std;
 
 #define	IBI_EXT			".IBI"	//(I)nterpreted (B)lock (I)nstructions

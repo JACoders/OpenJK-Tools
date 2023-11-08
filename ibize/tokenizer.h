@@ -10,6 +10,7 @@
 #include <vector>
 #include <map>
 #include <cstdint>
+#include <cstring>
 
 using namespace std;
 
