@@ -8,7 +8,8 @@
 #else
 #include <unistd.h>
 #endif
-#include <stdio.h>
+#include <cstdarg>
+#include <cstdio>
 
 #include "tokenizer.h"
 #include "blockstream.h"
